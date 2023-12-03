@@ -1,0 +1,16 @@
+<div class="row" >
+    <div class="card m-1"*ngFor="let producto of listProductos">
+        <div class="card-head">
+            <img src="" alt="zapato">
+        </div>
+        <div class="card-body">
+            <div >
+                <h4>{{producto.nombre}}</h4>
+                <h3>{{producto.precio}}</h3>
+            </div>
+            <p>{{producto.marca}}</p>
+            <img src="../icons/boton-mas.png" alt="">
+            <button style="background-color: blueviolet;" (click)="verProducto(producto.id)" class="btn">ver</button>
+        </div>
+    </div>
+</div>

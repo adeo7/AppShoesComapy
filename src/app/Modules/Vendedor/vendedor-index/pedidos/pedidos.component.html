@@ -1,0 +1,145 @@
+<div class="container-fluid">
+    <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Pedidos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Despachados</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabsContent">
+        <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+          <!-- Contenido del Tab 1 -->
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Talla</th>
+                    <th>Precio</th>
+                    <th>Color</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfQiE0EVQPfaa9qQSGXm7cKVdAfbdOv9P10g&usqp=CAU"
+                            alt="Producto 1" class="img-fluid" style="width: 100px; height: 100px;">
+                    </td>
+                    <td>Producto</td>
+                    <td>50</td>
+                    <td>$20.00</td>
+                    <td>Azul</td>
+                    <td>10</td>
+                    <td>Despachado</td>
+                    <td>
+                        <button type="button" class="btn btn vista">
+                            <img class="logo" src="../img/ojo.png" alt="">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://www.paylesscolombia.co/26571-thickbox_default/men_s_encore_slip-on.jpg"
+                            alt="Producto 1" class="img-fluid" style="width: 100px; height: 100px;">
+                    </td>
+                    <td>Producto B</td>
+                    <td>20</td>
+                    <td>$25.00</td>
+                    <td>Rojo</td>
+                    <td>15</td>
+                    <td>Despachado</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">ver </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+          <!-- Contenido del Tab 2 -->
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Talla</th>
+                    <th>Precio</th>
+                    <th>Color</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="https://www.paylesscolombia.co/26571-thickbox_default/men_s_encore_slip-on.jpg"
+                            alt="Producto 1" class="img-fluid" style="width: 100px; height: 100px;">
+                    </td>
+                    <td>Producto B</td>
+                    <td>20</td>
+                    <td>$25.00</td>
+                    <td>Rojo</td>
+                    <td>15</td>
+                    <td>Despachado</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">>ver </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+</div>
+  <div class="modal modal-xl" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Detalles</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                      <h5 class="card-title">Nombre del Producto</h5>
+                                                                      <p class="card-text">Categoría: <span class="font-weight-bold">Nombre de la Categoría</span></p>
+                                                                      <p class="card-text">Talla: <span class="font-weight-bold">Talla del Producto</span></p>
+                                                                      <p class="card-text">Precio: <span class="font-weight-bold">$XXX</span></p>
+                                                                      <p class="card-text">Color: <span class="font-weight-bold">Color del Producto</span></p>
+                                                                      <p class="card-text">Marca: <span class="font-weight-bold">Nombre de la Marca</span></p>
+                                                                      <p class="card-text">Género: <span class="font-weight-bold">Género del Producto</span></p>
+                                                                      <p class="card-text">Cantidad disponible: <span class="font-weight-bold">Cantidad Disponible</span></p>
+                                                                    </div>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                      <h5 class="card-title">Nombre del cliente</h5>
+                                                                      <p class="card-text">Apellidos: <span class="font-weight-bold">apellidos</span></p>
+                                                                      <p class="card-text">direccion: <span class="font-weight-bold">direccion</span></p>
+                                                                      <p class="card-text">telefono: <span class="font-weight-bold">1122333</span></p>
+                                                                      <p class="card-text">tipo de documento: <span class="font-weight-bold">C.C</span></p>
+                                                                      <p class="card-text">numero de documento: <span class="font-weight-bold">11111111</span></p>
+                                                                      <p class="card-text">Fecha del pedido: <span class="font-weight-bold">20-10-2023</span></p>
+                                                                      <p class="card-text">Total del pedido: <span class="font-weight-bold">20.000.000</span></p>
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary">Despachar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>

@@ -1,0 +1,41 @@
+<body><!--body comprador index-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../img/Logo.png" width="81" height="65" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="">Inicio</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="locales" >Categorías</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="locales">Locales</a>
+                </li>
+                <li class="nav-item">   
+                    <a class="nav-link" routerLink="info">Tu informacion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="carrito">Carrito</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-5" type="search" placeholder="Buscar" aria-label="Buscar">
+                <a routerLink="login"> incio sesion</a>
+            </form>
+        </div>
+    </nav>
+    <!-- contenido  -->
+    <div class="container-lg mt-5 ">
+        <div class="row">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>

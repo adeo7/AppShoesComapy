@@ -1,0 +1,82 @@
+<div class="container mt-4">
+    <form >
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <fieldset>
+                    <h2>registrarte</h2>
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombres">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="telefono" placeholder="Teléfono">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="text" class="form-control" id="correo" placeholder="Correo">
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6">
+                <fieldset>
+                    <br>
+                    <br>
+                    <div class="mb-3">
+                        <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
+                        <select class="form-select" id="tipoDocumento">
+                            <option value="" disabled selected>Seleccione...</option>
+                            <option value="dni">Cédula</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="documento" class="form-label">Número de Documento</label>
+                        <input type="text" class="form-control" id="documento" placeholder="Número de Documento">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fechaNacimiento">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="contrasena" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirmarContrasena" class="form-label">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="confirmarContrasena"
+                            placeholder="Confirmar Contraseña">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="mb-3 form-check center">
+            <input type="checkbox" class="form-check-input" id="privacidad">
+            <label class="form-check-label" for="privacidad">Al registrarte, aceptas nuestras Condiciones de uso y
+                Política de privacidad.</label>
+        </div>
+
+        <div class="mb-3 text-center">
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <p>¿Ya tienes una cuenta? <a routerLink="/login" class="link">Iniciar Sesión</a></p>
+        </div>
+    </form>
+</div>

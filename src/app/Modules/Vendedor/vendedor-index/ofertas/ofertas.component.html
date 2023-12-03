@@ -1,0 +1,76 @@
+<h2>Ofertas</h2>
+<div class="text-lg-right">
+    <button type="submit"
+            class="bi bi-plus-square btn btn-secondary" 
+            data-bs-toggle="modal" 
+            data-bs-target="#exampleModal">Agregar</button>
+</div>
+<br>
+<div class="table table-responsive">
+    <table class="table table-bordered  ">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descuento</th>
+                <th>Inicio de la oferta</th>
+                <th>Fin de la oferta</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Zapatos Deportivos</td>
+                <td>$150</td>
+                <td>20-10-2023</td>
+                <td>20-10-2023</td>
+                <td>
+                    <a href="#" class="btn btn-warning btn-sm bi bi-pencil-square">Editar</a>
+                    <a href="#" class="btn btn-danger btn-sm bi bi-trash3">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar oferta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <form >
+              <input type="text"
+              class="form-control m-2"
+              type="text"
+              placeholder="Nombre de la oferta"
+              formControlName="nombre"
+              >
+  
+              <input type="text"
+              class="form-control m-2"
+              type="number"
+              placeholder="Descuento"
+              formControlName="Descuento"
+              >
+  
+              <input type="date"
+              class="form-control m-2"
+              formControlName="marca"
+              >
+
+              <input type="date"
+              class="form-control m-2"
+              formControlName="disponibles"
+              >
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" >Guardar Oferta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
