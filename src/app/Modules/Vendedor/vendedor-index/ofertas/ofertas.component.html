@@ -30,7 +30,7 @@
                     class="bi bi-plus-square btn btn-sm btn-warning" 
                     data-bs-toggle="modal" 
                     data-bs-target="#exampleModal">editar</button>
-                    <a href="#" class="btn btn-danger btn-sm bi m-1 bi-trash3">Eliminar</a>
+                    <a class="btn btn-danger btn-sm bi m-1 bi-trash3" (click)="eliminar(o.id)">Eliminar</a>
                 </td>
             </tr>
         </tbody>
@@ -70,6 +70,9 @@
               class="form-control m-2"
               formControlName="fecha_fin"
               >
+              <select class="form-select" formControlName="producto">
+                <option *ngFor="let p of listProductos" value="{{p.id}}">{{p.nombre}}</option>
+              </select>
             </form>
           </div>
         </div>

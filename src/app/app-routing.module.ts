@@ -17,9 +17,10 @@ import { LoginComponent } from './Shared/login/login.component';
 import { RegistrarseComponent } from './Shared/registrarse/registrarse.component';
 import { LocalVendedorComponent } from './Modules/Comprador/local-vendedor/local-vendedor.component';
 import { ProductoCompradorComponent } from './Modules/Comprador/productoComprador/productoComprador.component';
+import { AuthGuard } from './Core/auth.guard';
 
 const routes: Routes = [
-  {path:'Vendedor', component: VendedorIndexComponent,
+  {path:'Vendedor', component: VendedorIndexComponent, canActivate:[AuthGuard],
   children:[
     {path:'Productos', component: ProductoComponent},
     {path:'Pedidos', component: PedidosComponent},
@@ -34,7 +35,7 @@ children:[
   {path:'locales', component: CompradorLocalesComponent}
 ]
 },
-{path:'info', component:CompradorInfoComponent,
+{path:'info', component:CompradorInfoComponent, canActivate:[AuthGuard],
 children:[
   {path:'', component:InformacionCompradorComponent},
   {path:'informacion',component:InformacionCompradorComponent},

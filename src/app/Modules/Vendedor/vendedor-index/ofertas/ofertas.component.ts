@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OfertasService } from 'src/app/Core/ofertas.service';
+import { ProductoService } from 'src/app/Core/producto.service';
 import { TallasService } from 'src/app/Core/tallas.service';
 
 @Component({
@@ -11,14 +12,18 @@ import { TallasService } from 'src/app/Core/tallas.service';
 export class OfertasComponent implements OnInit{
   public frmOfreta:FormGroup;
   listOfertas: any[]=[];
+  listProductos: any[]=[];
   bandera=false
   id=0
-  constructor(private service: OfertasService){
+  constructor(private service: OfertasService,
+              private serviceP:ProductoService
+    ){
     this.frmOfreta=new FormGroup({
       nombre: new FormControl(null,[Validators.required]),
       descuento: new FormControl(null,[Validators.required]),
       fecha_inicio: new FormControl(null,[Validators.required]),
-      fecha_fin: new FormControl(null,[Validators.required])
+      fecha_fin: new FormControl(null,[Validators.required]),
+      producto: new FormControl(null,[Validators.required])
     })
   }
 
@@ -28,11 +33,16 @@ export class OfertasComponent implements OnInit{
   getlist(){
       this.service.getAll().subscribe(result=>{
         this.listOfertas=result;
-        console.log(this.listOfertas)
       },
       error=>{
         console.log(error)
-      })
+      });
+      this.serviceP.getAll().subscribe(result=>{
+        this.listProductos=result;
+      },
+      error=>{
+        console.log(error)
+      });
   }
   guardar(){
     if (this.frmOfreta.invalid) {
@@ -43,7 +53,8 @@ export class OfertasComponent implements OnInit{
         "descuento": this.frmOfreta.controls['descuento'].value,
         "inicio_oferta": this.frmOfreta.controls['fecha_inicio'].value,
         "fin_oferta": this.frmOfreta.controls['fecha_fin'].value,
-        "producto":1
+        "producto_id":this.frmOfreta.controls['producto'].value
+        
     }
     console.log(data);
 
@@ -63,21 +74,31 @@ export class OfertasComponent implements OnInit{
       this.frmOfreta.controls['descuento'].setValue(result.descuento)
       this.frmOfreta.controls['fecha_inicio'].setValue(result.inicio_oferta)
       this.frmOfreta.controls['fecha_fin'].setValue(result.fin_oferta)
+      this.frmOfreta.controls['producto'].setValue(result.fin_oferta)
     })
   }
   actualizar(){
     this.bandera=false
     let data={
-      "tipo": this.frmOfreta.controls['nombre'].value,
+      "id":5,
+      "tipo_oferta": this.frmOfreta.controls['nombre'].value,
         "descuento": this.frmOfreta.controls['descuento'].value,
         "inicio_oferta": this.frmOfreta.controls['fecha_inicio'].value,
         "fin_oferta": this.frmOfreta.controls['fecha_fin'].value,
-        "producto": {
-          "producto_id": 1
-        }
+        "producto": this.frmOfreta.controls['producto'].value
     }
     this.service.edit(data,this.id).subscribe(result=>{
       alert("datos actualizados")
+      this.getlist();
+    },
+    error=>{
+      console.log(error)
+    })
+  }
+  eliminar(id:any){
+    this.service.delete(id).subscribe(result=>{
+      alert("oferta eliminada")
+      this.getlist();
     },
     error=>{
       console.log(error)
