@@ -46,7 +46,6 @@ children:[
 {path:'registro', component: RegistrarseComponent},
 {path:'local/:id', component: LocalVendedorComponent},
 {path:'producto/:id', component:ProductoCompradorComponent}
-
 ];
 
 @NgModule({

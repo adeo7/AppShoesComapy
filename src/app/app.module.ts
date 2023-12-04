@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VendedorIndexComponent } from './Modules/Vendedor/vendedor-index/vendedor-index/vendedor-index.component';
@@ -24,6 +25,8 @@ import { LoginComponent } from './Shared/login/login.component';
 import { RegistrarseComponent } from './Shared/registrarse/registrarse.component';
 import { LocalVendedorComponent } from './Modules/Comprador/local-vendedor/local-vendedor.component';
 import { ProductoCompradorComponent } from './Modules/Comprador/productoComprador/productoComprador.component';
+import { FormGroup } from '@angular/forms';
+import { RecuperarPasswordComponent } from './Shared/recuperar-password/recuperar-password.component';
 
 
 @NgModule({
@@ -48,13 +51,16 @@ import { ProductoCompradorComponent } from './Modules/Comprador/productoComprado
     LoginComponent,
     RegistrarseComponent,
     LocalVendedorComponent,
-    ProductoCompradorComponent
+    ProductoCompradorComponent,
+    RecuperarPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,33 +21,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let producto of listPrdocutos">
                 <td>
                     <img src="https://www.paylesscolombia.co/31668-large_default/men_s_vistech_run.jpg"
                         alt="Producto 1" class="img-fluid" style="width: 60px; height: 60px;">
                 </td>
-                <td>Zapatos Deportivos</td>
-                <td>42</td>
-                <td>Deportivos</td>
-                <td>$150</td>
-                <td>Azul</td>
-                <td>10</td>
-                <td>
-                    <a href="#" class="btn btn-warning btn-sm bi bi-pencil-square">Editar</a>
-                    <a href="#" class="btn btn-danger btn-sm bi bi-trash3">Eliminar</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="imagen2.jpg" alt="Producto 2" class="img-fluid rounded"
-                        style="width: 60px; height: 60px;">
-                </td>
-                <td>Camiseta Casual</td>
-                <td>M</td>
-                <td>Casuales</td>
-                <td>$30</td>
-                <td>Blanco</td>
-                <td>20</td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.talla}}</td>
+                <td>{{producto.categoria}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.color}}</td>
+                <td>{{producto.disponible}}</td>
                 <td>
                     <a href="#" class="btn btn-warning btn-sm bi bi-pencil-square">Editar</a>
                     <a href="#" class="btn btn-danger btn-sm bi bi-trash3">Eliminar</a>
@@ -88,9 +72,9 @@
               >
               <select class="form-select m-2" aria-label="Default select example"  formControlName="genero">
                 <option selected>Seleciona una opción</option>
-                <option value="F">Femeninos</option>
-                <option value="M">Masculinos</option>
-                <option value="U">Unisex</option>
+                <option value="Femeninos">Femeninos</option>
+                <option value="Masculinos">Masculinos</option>
+                <option value="Unisex">Unisex</option>
               </select>
   
               <input type="text"
@@ -102,11 +86,13 @@
   
               <select class="form-select m-2" aria-label="Default select example"  formControlName="categoria">
                 <option selected>Seleciona una opción</option>
+                <option *ngFor="let c of listCategorias" value="{{c.id}}" >{{c.descripcion}}</option>
                
               </select>
   
               <select class="form-select m-2" aria-label="Default select example"  formControlName="talla">
                 <option selected>Seleciona una talla</option>
+                <option *ngFor="let t of listTallas" value="{{t.id}}">{{t.descripcion}}</option>
 
               </select>
   
