@@ -18,6 +18,7 @@ import { RegistrarseComponent } from './Shared/registrarse/registrarse.component
 import { LocalVendedorComponent } from './Modules/Comprador/local-vendedor/local-vendedor.component';
 import { ProductoCompradorComponent } from './Modules/Comprador/productoComprador/productoComprador.component';
 import { AuthGuard } from './Core/auth.guard';
+import { FooterTerYCondComponent } from './Shared/footer.index/footer-ter-y-cond/footer-ter-y-cond.component';
 
 const routes: Routes = [
   {path:'Vendedor', component: VendedorIndexComponent, canActivate:[AuthGuard],
@@ -32,9 +33,11 @@ const routes: Routes = [
 {path:'', component:CompradorIndexComponent,
 children:[
   {path:'', component:CompradorProductosComponent},
-  {path:'locales', component: CompradorLocalesComponent}
+  {path:'locales', component: CompradorLocalesComponent},
+
 ]
 },
+// compradores
 {path:'info', component:CompradorInfoComponent, canActivate:[AuthGuard],
 children:[
   {path:'', component:InformacionCompradorComponent},
@@ -46,7 +49,9 @@ children:[
 {path:'login', component: LoginComponent},
 {path:'registro', component: RegistrarseComponent},
 {path:'local/:id', component: LocalVendedorComponent},
-{path:'producto/:id', component:ProductoCompradorComponent}
+{path:'producto/:id', component:ProductoCompradorComponent},
+{path:'ter-y-con', component: FooterTerYCondComponent},
+
 ];
 
 @NgModule({

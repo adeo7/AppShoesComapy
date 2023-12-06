@@ -10,45 +10,45 @@ import { PqrstipoService } from 'src/app/Core/pqrstipo.service';
   templateUrl: './pqrs.component.html',
   styleUrls: ['./pqrs.component.css']
 })
-export class PQRSComponent implements OnInit{
+export class PQRSComponent implements OnInit {
 
-  listPqrs:any[]=[] 
-  listPqrsRespuesta:any[]=[]  
-  listPqrstipo:any[]=[] 
-  frmPqr:FormGroup; 
+  listPqrs: any[] = []
+  listPqrsRespuesta: any[] = []
+  listPqrstipo: any[] = []
+  frmPqr: FormGroup;
   constructor(private service: PqrsService,
-              private serviceRespuesta:PqrsRespuestaService,
-              private serviceTipo: PqrstipoService    
-    ){
-      this.frmPqr=new FormGroup({
-        numero_radicado: new FormControl(null,[Validators.required]),
-        tipo_peticion: new FormControl(null,[Validators.required]),
-        descripcion: new FormControl(null,[Validators.required]),
-        fecha_respuesta: new FormControl(null,[Validators.required]),
-        local_peticion: new FormControl(null,[Validators.required]),
-        nit_local: new FormControl(null,[Validators.required]),
-        nombre_usuario: new FormControl(null,[Validators.required]),
-        apellidos_usuario:new FormControl(null,[Validators.required]),
-        direccion_usuario: new FormControl(null,[Validators.required]),
-        tipo_documento: new FormControl(null,[Validators.required]),
-        documento: new FormControl(null,[Validators.required]),
-        telefono_usuario: new FormControl(null,[Validators.required])
-      })
-    }
+    private serviceRespuesta: PqrsRespuestaService,
+    private serviceTipo: PqrstipoService
+  ) {
+    this.frmPqr = new FormGroup({
+      numero_radicado: new FormControl(null, [Validators.required]),
+      tipo_peticion: new FormControl(null, [Validators.required]),
+      descripcion: new FormControl(null, [Validators.required]),
+      fecha_respuesta: new FormControl(null, [Validators.required]),
+      local_peticion: new FormControl(null, [Validators.required]),
+      nit_local: new FormControl(null, [Validators.required]),
+      nombre_usuario: new FormControl(null, [Validators.required]),
+      apellidos_usuario: new FormControl(null, [Validators.required]),
+      direccion_usuario: new FormControl(null, [Validators.required]),
+      tipo_documento: new FormControl(null, [Validators.required]),
+      documento: new FormControl(null, [Validators.required]),
+      telefono_usuario: new FormControl(null, [Validators.required])
+    })
+  }
 
   ngOnInit(): void {
-  this.getlist();  
+    this.getlist();
   }
-  getlist(){
+  getlist() {
     forkJoin([
       this.service.getAll(),
       this.serviceRespuesta.getAll(),
       this.serviceTipo.getAll(),
     ]).subscribe(
       ([result, respuestaResult, tipoResult]) => {
-        this.listPqrs=result;
-        this.listPqrsRespuesta=respuestaResult;
-        this.listPqrstipo=tipoResult;
+        this.listPqrs = result;
+        this.listPqrsRespuesta = respuestaResult;
+        this.listPqrstipo = tipoResult;
       },
       error => {
         console.error(error);
