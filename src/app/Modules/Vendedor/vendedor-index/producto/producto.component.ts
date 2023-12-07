@@ -46,6 +46,7 @@ public FrmProducto:FormGroup
     ]).subscribe(
       ([Result, fotoResult, resultCate, resultTallas]) => {
         productos=Result
+        console.log("lo que me devuelve producto"+productos)
         fotos=fotoResult;
         this.listCategorias=resultCate;
         this.listTallas=resultTallas;

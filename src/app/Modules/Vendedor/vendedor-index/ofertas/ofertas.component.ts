@@ -19,6 +19,7 @@ export class OfertasComponent implements OnInit{
               private serviceP:ProductoService
     ){
     this.frmOfreta=new FormGroup({
+      id: new FormControl(null,[Validators.required]),
       nombre: new FormControl(null,[Validators.required]),
       descuento: new FormControl(null,[Validators.required]),
       fecha_inicio: new FormControl(null,[Validators.required]),
