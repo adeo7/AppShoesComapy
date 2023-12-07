@@ -16,15 +16,14 @@ export class OfertasComponent implements OnInit {
   bandera = false
   id = 0
   constructor(private service: OfertasService,
-              private serviceP:ProductoService
-    ){
-    this.frmOfreta=new FormGroup({
-      id: new FormControl(null,[Validators.required]),
-      nombre: new FormControl(null,[Validators.required]),
-      descuento: new FormControl(null,[Validators.required]),
-      fecha_inicio: new FormControl(null,[Validators.required]),
-      fecha_fin: new FormControl(null,[Validators.required]),
-      producto: new FormControl(null,[Validators.required])
+    private serviceP: ProductoService
+  ) {
+    this.frmOfreta = new FormGroup({
+      nombre: new FormControl(null, [Validators.required]),
+      descuento: new FormControl(null, [Validators.required]),
+      fecha_inicio: new FormControl(null, [Validators.required]),
+      fecha_fin: new FormControl(null, [Validators.required]),
+      producto: new FormControl(null, [Validators.required])
     })
   }
 

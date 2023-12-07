@@ -1,5 +1,7 @@
+<app-nav-comprador></app-nav-comprador>
+
 <div class="container-fluid">
-    <form class="formulario">
+    <form [formGroup]="frmLongin" class="formulario">
         <h2 class="text-center font-weight-bold">Inicia sesión</h2>
         <div class="mb-3">
             <label for="email" class="form-label">Correo electrónico</label>
@@ -15,7 +17,7 @@
             <button type="submit" style="border-radius: 16px; background: #68548C; color: #FFF;"
                 class="btn btn-block">Iniciar sesión</button>
         </div>
-        <p class="text-center">¿No tienes cuenta? <a href="registro.html" class="custom-link text-black">Crea una</a></p>
+        <p class="text-center">¿No tienes cuenta? <a routerLink="/registro" class="custom-link text-black"><span>Crea una</span></a></p>
     </form>
 </div>
 <br>

@@ -33,7 +33,7 @@ const routes: Routes = [
 {path:'', component:CompradorIndexComponent,
 children:[
   {path:'', component:CompradorProductosComponent},
-  {path:'locales', component: CompradorLocalesComponent},
+ 
 
 ]
 },
@@ -51,6 +51,7 @@ children:[
 {path:'local/:id', component: LocalVendedorComponent},
 {path:'producto/:id', component:ProductoCompradorComponent},
 {path:'ter-y-con', component: FooterTerYCondComponent},
+{path:'locales', component: CompradorLocalesComponent}
 
 ];
 

@@ -8,14 +8,14 @@ import { Component } from '@angular/core';
 export class CarritoComponent {
 
   // funcionamiento de los botones
-  myNumber: number = 0;
+  myNumber: number = 1;
 
   increment() {
     this.myNumber++;
   }
 
   decrement() {
-    if (this.myNumber > 0) {
+    if (this.myNumber > 1) {
       this.myNumber--;
     }
   }

@@ -7,3 +7,8 @@
     border-radius: 50px;
     margin-top: 50px;
 }
+
+a:hover span {
+    color: #810781;
+    /* Color del texto al resaltar */
+}

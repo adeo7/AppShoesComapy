@@ -18,7 +18,7 @@ constructor(private authService:AuthService, private router:Router ){
   });
 }
 ngOnInit(): void {
-  
+
 }
 login():void{
 let credentials={

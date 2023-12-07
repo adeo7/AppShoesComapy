@@ -25,6 +25,7 @@ import { LoginComponent } from './Shared/login/login.component';
 import { RegistrarseComponent } from './Shared/registrarse/registrarse.component';
 import { LocalVendedorComponent } from './Modules/Comprador/local-vendedor/local-vendedor.component';
 import { ProductoCompradorComponent } from './Modules/Comprador/productoComprador/productoComprador.component';
+import { FormGroup } from '@angular/forms';
 import { RecuperarPasswordComponent } from './Shared/recuperar-password/recuperar-password.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Core/token.interceptor';

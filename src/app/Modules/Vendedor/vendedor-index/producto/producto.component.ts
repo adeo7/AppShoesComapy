@@ -45,18 +45,10 @@ export class ProductoComponent implements OnInit {
       this.serviceTallas.getAll()
     ]).subscribe(
       ([Result, fotoResult, resultCate, resultTallas]) => {
-<<<<<<< HEAD
-        productos=Result
-        console.log("lo que me devuelve producto"+productos)
-        fotos=fotoResult;
-        this.listCategorias=resultCate;
-        this.listTallas=resultTallas;
-=======
         productos = Result
         fotos = fotoResult;
         this.listCategorias = resultCate;
         this.listTallas = resultTallas;
->>>>>>> 91ea59df10d629a56838d903549277e5a5e697e2
         // for (let i = 0; i < productos.length; i++) {
         //   for (let j = 0; j < fotos.length; j++) {
 
