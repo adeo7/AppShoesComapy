@@ -21,7 +21,8 @@ import { AuthGuard } from './Core/auth.guard';
 import { FooterTerYCondComponent } from './Shared/footer.index/footer-ter-y-cond/footer-ter-y-cond.component';
 
 const routes: Routes = [
-  {path:'Vendedor', component: VendedorIndexComponent, canActivate:[AuthGuard],
+  {path:'vendedor', component: VendedorIndexComponent,
+  //  canActivate:[AuthGuard],
   children:[
     {path:'Productos', component: ProductoComponent},
     {path:'Pedidos', component: PedidosComponent},
