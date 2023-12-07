@@ -11,33 +11,33 @@ import { TallasService } from 'src/app/Core/tallas.service';
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.css']
 })
-export class ProductoComponent implements OnInit{
-listPrdocutos:any[]=[]
-listCategorias:any[]=[]
-listTallas:any[]=[]
-public FrmProducto:FormGroup
-  constructor(private service:ProductoService,
-              private serviceFoto:ImagenProductoService,
-              private serviceCategorias:CategoriasService,
-              private serviceTallas:TallasService,
-    ){
-      this.FrmProducto=new FormGroup({
-        nombre:new FormControl(null,[Validators.required]),
-        precio:new FormControl(null,[Validators.required]),
-        marca:new FormControl(null,[Validators.required]),
-        genero:new FormControl(null,[Validators.required]),
-        talla:new FormControl(null,[Validators.required]),
-        disponibles:new FormControl(null,[Validators.required]),
-        color:new FormControl(null,[Validators.required])
-      });
-    }
+export class ProductoComponent implements OnInit {
+  listPrdocutos: any[] = []
+  listCategorias: any[] = []
+  listTallas: any[] = []
+  public FrmProducto: FormGroup
+  constructor(private service: ProductoService,
+    private serviceFoto: ImagenProductoService,
+    private serviceCategorias: CategoriasService,
+    private serviceTallas: TallasService,
+  ) {
+    this.FrmProducto = new FormGroup({
+      nombre: new FormControl(null, [Validators.required]),
+      precio: new FormControl(null, [Validators.required]),
+      marca: new FormControl(null, [Validators.required]),
+      genero: new FormControl(null, [Validators.required]),
+      talla: new FormControl(null, [Validators.required]),
+      disponibles: new FormControl(null, [Validators.required]),
+      color: new FormControl(null, [Validators.required])
+    });
+  }
 
   ngOnInit(): void {
-   this.getlist(); 
+    this.getlist();
   }
-  getlist(){
-    let productos:any[]=[]
-    let fotos:any[]=[]
+  getlist() {
+    let productos: any[] = []
+    let fotos: any[] = []
     forkJoin([
       this.service.getAll(),
       this.serviceFoto.getAll(),
@@ -45,17 +45,24 @@ public FrmProducto:FormGroup
       this.serviceTallas.getAll()
     ]).subscribe(
       ([Result, fotoResult, resultCate, resultTallas]) => {
+<<<<<<< HEAD
         productos=Result
         console.log("lo que me devuelve producto"+productos)
         fotos=fotoResult;
         this.listCategorias=resultCate;
         this.listTallas=resultTallas;
+=======
+        productos = Result
+        fotos = fotoResult;
+        this.listCategorias = resultCate;
+        this.listTallas = resultTallas;
+>>>>>>> 91ea59df10d629a56838d903549277e5a5e697e2
         // for (let i = 0; i < productos.length; i++) {
         //   for (let j = 0; j < fotos.length; j++) {
-            
+
         //   }
         // }
-        this.listPrdocutos=productos
+        this.listPrdocutos = productos
       },
       error => {
         // Manejo de errores si es necesario

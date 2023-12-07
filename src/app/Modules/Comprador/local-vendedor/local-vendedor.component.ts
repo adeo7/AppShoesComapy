@@ -9,37 +9,37 @@ import { ProductoService } from 'src/app/Core/producto.service';
   templateUrl: './local-vendedor.component.html',
   styleUrls: ['./local-vendedor.component.css']
 })
-export class LocalVendedorComponent implements OnInit{
-  listaProductos: any[]=[]
-  local:any;  
-  id:any;
-  constructor(private service:LocalesService,
-              private productoService: ProductoService,
-              private activateRoute: ActivatedRoute
-    ){
-      this.id= this.activateRoute.snapshot.params['id'];
-    }
+export class LocalVendedorComponent implements OnInit {
+  listaProductos: any[] = []
+  local: any;
+  id: any;
+  constructor(private service: LocalesService,
+    private productoService: ProductoService,
+    private activateRoute: ActivatedRoute
+  ) {
+    this.id = this.activateRoute.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
-   this.getList(); 
+    this.getList();
   }
-  getList(){
-    let productos:any[]=[]
-    let productoslocal:any[]=[]
+  getList() {
+    let productos: any[] = []
+    let productoslocal: any[] = []
     forkJoin([
       this.service.getById(this.id),
       this.productoService.getAll()
     ]).subscribe(
       ([Result, productosResult]) => {
-        this.local=Result
-        productos=productosResult;
+        this.local = Result
+        productos = productosResult;
         console.log(this.local)
         console.log(productos)
         for (let i = 0; i < productos.length; i++) {
-          if (productos[i].local==this.local.nombre_local) {
+          if (productos[i].local == this.local.nombre_local) {
             productoslocal.push(productos[i])
           }
-          this.listaProductos=productoslocal;
+          this.listaProductos = productoslocal;
         }
         console.log(this.listaProductos)
       },

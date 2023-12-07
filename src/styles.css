@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
 /* inicio sesion */
-.formulario {
+/* .formulario {
     margin: 0 auto;
     width: 345px;
     height: 420px;
@@ -9,7 +10,7 @@
     border: 1px solid #000000;
     border-radius: 50px;
     margin-top: 50px;
-}
+} */
 
 /* inicio sesion */
 /* -------------------------------------------------------------------------------------------------------------------- */
@@ -113,7 +114,8 @@ textarea {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
         box-shadow 0.15s ease-in-out;
 }
-.btn-custom :hover{
+
+.btn-custom :hover {
     background-color: #493a64;
 }
 
@@ -134,10 +136,13 @@ textarea {
 /* -------------------------------------------------------------------------------------------------------------------- */
 /* lista pqrs */
 
-
+/* para quitar la linea de los links de <a> */
+a {
+    text-decoration: none;
+}
 
 /* cambio de contraseña */
-.primary{
+.primary {
     margin-right: 5px;
     background-color: #68548C;
     border-radius: 10px;

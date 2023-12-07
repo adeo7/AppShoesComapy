@@ -1,32 +1,39 @@
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3  shadow p-3 m-3 text-center border">
+    <div class="row ">
+        <div class="col-3 col-md-3  shadow p-3 m-3 text-center border" style="height: 27rem;">
             <div class="circulo">
                 <img src="../img/7431863.jpg" alt="imagen" class="img-fluid rounded-circle">
             </div>
             <div>
                 <br>
-                <h2>{{local.nombre_local}}</h2>
+                <h2>Tienda Randon</h2>
                 <br>
-                <p class="mb-1">{{local.telefono_local}}</p>
-                <p class="mb-1">{{local.direccion_local}}</p>
+                <p class="mb-1">Número telefónico</p>
+                <p class="mb-1">+57 3215485798</p>
+                <p class="mb-1">Dirección</p>
+                <p class="mb-1">Carrera 20 #13-24</p>
+                <p class="mb-1">tiendagenerica123@outlook.com</p>
             </div>
-            
         </div>
-        <div class="col-lg-4 p-md-5  mr-4" *ngFor="let producto of listaProductos">
-            <div class="card">
-                <div class="card-head">
-                    <img src="" alt="zapato">
-                </div>
+        <div class="container-fluid p-md-3  mr-4 col">
+            <div class="row  ">
+            <div class="card m-3 " style="width: 18rem;">
+                <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhyRZrXGhbu6iCk7i1W0UAT55Jq_T1oylfPA&usqp=CAU"
+                    style="max-height: 9rem; min-height: 9rem;" alt="...">
                 <div class="card-body">
-                    <div >
-                        <h4>{{producto.nombre}}</h4>
-                        <h3>{{producto.precio}}</h3>
+                    <h6 class="card-text">
+                        <p>Nombre de zapato</p>
+                    </h6>
+                    <p class="card-text">Marca</p>
+                    <p class="card-text">Precio</p>
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <a href="" class="btn btn-dark " style=" border-radius: 70%;"><i
+                                class="fa-solid fa-plus fa-lg"></i></a>
                     </div>
-                    <p>{{producto.marca}}</p>
-                    <img src="../icons/boton-mas.png" alt="">
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>
