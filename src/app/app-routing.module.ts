@@ -19,40 +19,51 @@ import { LocalVendedorComponent } from './Modules/Comprador/local-vendedor/local
 import { ProductoCompradorComponent } from './Modules/Comprador/productoComprador/productoComprador.component';
 import { AuthGuard } from './Core/auth.guard';
 import { FooterTerYCondComponent } from './Shared/footer.index/footer-ter-y-cond/footer-ter-y-cond.component';
+import { AgregarProductoComponent } from './Modules/Vendedor/vendedor-index/agregar-producto/agregar-producto.component';
+import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/oferta-categoria/oferta-categoria.component';
+import { InformacionVendedorComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/informacion-vendedor/informacion-vendedor.component';
 
 const routes: Routes = [
-  {path:'vendedor', component: VendedorIndexComponent,
-  //  canActivate:[AuthGuard],
-  children:[
-    {path:'Productos', component: ProductoComponent},
-    {path:'Pedidos', component: PedidosComponent},
-    {path:'Ofertas', component: OfertasComponent},
-    {path:'Categorias', component: CategoriaComponent},
-    {path:'PQRS', component: PQRSComponent},
-  ]
-},
-{path:'', component:CompradorIndexComponent,
-children:[
-  {path:'', component:CompradorProductosComponent},
- 
+  {
+    path: 'vendedor_1', component: VendedorIndexComponent,
+    //  canActivate:[AuthGuard],
+    children: [
+      { path: 'Productos', component: ProductoComponent },
+      { path: 'Pedidos', component: PedidosComponent },
+      { path: 'Ofertas', component: OfertasComponent },
+      { path: 'Categorias', component: CategoriaComponent },
+      { path: 'PQRS', component: PQRSComponent },
+      { path: 'agregar', component: AgregarProductoComponent },
+      { path: 'informacion_', component: InformacionVendedorComponent},
+      { path: 'agregar/oferta-categorias', component: OfertaCategoriaComponent},
+    ]
+  },
+  {
+    path: '', component: CompradorIndexComponent,
+    children: [
+      { path: '', component: CompradorProductosComponent },
 
-]
-},
-// compradores
-{path:'info', component:CompradorInfoComponent, canActivate:[AuthGuard],
-children:[
-  {path:'', component:InformacionCompradorComponent},
-  {path:'informacion',component:InformacionCompradorComponent},
-  {path:'cambiar', component:CambiarPasswordComponent}
-]
-},
-{path:'carrito', component:CarritoComponent},
-{path:'login', component: LoginComponent},
-{path:'registro', component: RegistrarseComponent},
-{path:'local/:id', component: LocalVendedorComponent},
-{path:'producto/:id', component:ProductoCompradorComponent},
-{path:'ter-y-con', component: FooterTerYCondComponent},
-{path:'locales', component: CompradorLocalesComponent}
+
+    ]
+  },
+  // compradores
+  {
+    path: 'compredor-info', component: CompradorInfoComponent,
+    //  canActivate:[AuthGuard],
+    children: [
+      { path: '', component: InformacionCompradorComponent },
+      { path: 'informacion', component: InformacionCompradorComponent },
+      { path: 'cambiar', component: CambiarPasswordComponent }
+    ]
+  },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistrarseComponent },
+  { path: 'local/:id', component: LocalVendedorComponent },
+  { path: 'producto/:id', component: ProductoCompradorComponent },
+  { path: 'ter-y-con', component: FooterTerYCondComponent },
+  { path: 'locales', component: CompradorLocalesComponent },
+
 
 ];
 
@@ -60,6 +71,6 @@ children:[
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
- 
+export class AppRoutingModule {
+
 }

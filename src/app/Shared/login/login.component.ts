@@ -8,36 +8,44 @@ import { AuthService } from 'src/app/Core/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
- public frmLongin:FormGroup;
+export class LoginComponent implements OnInit {
+  // mostrar contraseña
+  mostrarContrasena = false;
 
-constructor(private authService:AuthService, private router:Router ){
-  this.frmLongin=new FormGroup({
-   username:new FormControl(null,[Validators.required]), 
-   password:new FormControl(null,[Validators.required]) 
-  });
-}
-ngOnInit(): void {
+  toggleMostrarContrasena() {
+    this.mostrarContrasena = !this.mostrarContrasena;
+  }
 
-}
-login():void{
-let credentials={
-"username":this.frmLongin.controls['username'].value,
-"password":this.frmLongin.controls['password'].value
-}
-if (this.frmLongin.invalid) {
-  return
-}
-this.authService.login(credentials).subscribe(result=>{
-  console.log(this.authService.getUserData())
-  this.router.navigateByUrl('/Vendedor')
-},
-error=>{
-  console.log(error)
-})
-}
-cerrar(){
-  this.authService.logout();
-}
+  // -----
+  public frmLongin: FormGroup;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.frmLongin = new FormGroup({
+      username: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
+    });
+  }
+  ngOnInit(): void {
+
+  }
+  login(): void {
+    let credentials = {
+      "username": this.frmLongin.controls['username'].value,
+      "password": this.frmLongin.controls['password'].value
+    }
+    if (this.frmLongin.invalid) {
+      return
+    }
+    this.authService.login(credentials).subscribe(result => {
+      console.log(this.authService.getUserData())
+      this.router.navigateByUrl('/Vendedor')
+    },
+      error => {
+        console.log(error)
+      })
+  }
+  cerrar() {
+    this.authService.logout();
+  }
 
 }

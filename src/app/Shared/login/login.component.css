@@ -12,3 +12,15 @@ a:hover span {
     color: #810781;
     /* Color del texto al resaltar */
 }
+
+.input-group .btn {
+    padding: 0.2rem 0.5rem;
+    width: 2rem;
+    height: 38px;
+    margin-bottom: 0.6rem;  
+}
+
+
+.input-group input {
+    width: 3rem;
+}
