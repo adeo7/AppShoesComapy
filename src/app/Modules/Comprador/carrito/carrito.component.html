@@ -1,3 +1,4 @@
+<app-nav-comprador></app-nav-comprador>
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-8">
@@ -14,7 +15,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="">
+            <tr *ngFor="let p of ListProductos">
               <td>
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0wf_Pk8PmfLqOEZU92E_JdMqzkf8xN7lgvQ&usqp=CAU"
@@ -23,25 +24,16 @@
               <td>
                 <div class="container">
                   <div class="info-box title">
-                    <h5>zapato</h5>
+                    <h5>{{p.producto}}</h5>
                   </div>
-                  <div class="info-box">Rojo</div>
-                  <div class="info-box">Talla:40</div>
+                  <div class="info-box">{{p.color}}</div>
+                  <div class="info-box">Talla:{{p.talla}}</div>
                 </div>
               </td>
               <td class="align-middle">
-                <div class="input-group align-items-center">
-                  <button class="btn btn-outline-secondary btn-sm" type="button" (click)="decrement()">
-                    <i class="fa-solid fa-minus"></i>
-                  </button>
-                  <input type="number" id="myNumber" class="form-control" [(ngModel)]="myNumber" value="0" min="0"
-                    aria-label="">
-                  <button class="btn btn-outline-secondary btn-sm" type="button" (click)="increment()">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
-                </div>
+             <input type="number" style="width: 50%;">
               </td>
-              <td class="p-4" id="abs-center">$100.000</td>
+              <td class="p-4" id="abs-center">${{p.total}}</td>
               <td><a href="" class="btn btn-dark m-4">X</a></td>
             </tr>
           </tbody>
@@ -64,15 +56,15 @@
             <tr class="">
               <td scope="row">
                 <div class="info-container">
-                  <div class="info-box title mt-3">Cantidad: --</div>
-                  <div class="info-box mt-3">SubTotal: --</div>
-                  <div class="info-box mt-3">Descuento: --</div>
+                  <div class="info-box title mt-3">Cantidad: {{cantidad}}</div>
+                  <div class="info-box mt-3">SubTotal: {{subtotal}}</div>
+                  <div class="info-box mt-3">Descuento: {{descuento}}</div>
                 </div>
               </td>
             </tr>
             <tr>
               <td scope="row">
-                <h2>Total: ----</h2>
+                <h2>Total: {{total}}</h2>
               </td>
             </tr>
             <tr class="">

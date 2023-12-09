@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
+import { AuthService } from 'src/app/Core/auth.service';
+import { GetProductosService } from 'src/app/Core/get-productos.service';
 import { ImagenProductoService } from 'src/app/Core/imagen-producto.service';
 import { ProductoService } from 'src/app/Core/producto.service';
 
@@ -12,16 +14,35 @@ import { ProductoService } from 'src/app/Core/producto.service';
 export class CompradorProductosComponent implements OnInit {
   listProductos: any[] = []
   constructor(private service: ProductoService,
+    private productoSin: GetProductosService,
     private serviceFoto: ImagenProductoService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.getList();
-    console.log(this.listProductos)
+  this.getList();
   }
 
+
   getList() {
+    if (this.auth.isLoggedIn()) {
+      this.service.getAll().subscribe(result=>{
+        this.listProductos=result;
+        console.log("resultado: "+result)
+      });
+    } else {
+      this.productoSin.getAll().subscribe(result=>{
+        this.listProductos=result;
+        console.log("resultado: "+result)
+      }); 
+    }
+
+  }
+  verProducto(id: any) {
+    this.router.navigateByUrl('producto/' + id)
+  }
+  ver(id: any) {
     let listFotoProductos: any[] = [];
     let listFotosP: any[] = [];
     let productos: any[] = [];
@@ -31,11 +52,9 @@ export class CompradorProductosComponent implements OnInit {
       this.serviceFoto.getAll()
     ]).subscribe(
       ([productosResult, fotosResult]) => {
+        console.log("res: "+productosResult)
         productos = productosResult;
         listFotoProductos = fotosResult;
-
-        console.log(productos);
-        console.log(listFotoProductos);
 
         for (let i = 0; i < productos.length; i++) {
           for (let j = 0; j < listFotoProductos.length; j++) {
@@ -62,8 +81,6 @@ export class CompradorProductosComponent implements OnInit {
         console.error(error);
       }
     );
-  }
-  verProducto(id: any) {
-    this.router.navigateByUrl('producto/' + id)
+    console.log("los productos sin auto: "+this.listProductos)
   }
 }

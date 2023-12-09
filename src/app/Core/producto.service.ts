@@ -24,7 +24,7 @@ export class ProductoService {
    
   }
 
-  getById(id:number) {
+  getById(id:any) {
     return this.Http.get<any>(this.urlBase+id,{headers :this.httpHeader})
   }
 

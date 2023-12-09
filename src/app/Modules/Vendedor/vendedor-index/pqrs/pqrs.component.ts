@@ -49,6 +49,7 @@ export class PQRSComponent implements OnInit {
         this.listPqrs = result;
         this.listPqrsRespuesta = respuestaResult;
         this.listPqrstipo = tipoResult;
+        console.log("pqr: "+result)
       },
       error => {
         console.error(error);

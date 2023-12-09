@@ -23,7 +23,7 @@ import { FooterTerYCondComponent } from './Shared/footer.index/footer-ter-y-cond
 const routes: Routes = [
   {path:'Vendedor', component: VendedorIndexComponent, canActivate:[AuthGuard],
   children:[
-    {path:'Productos', component: ProductoComponent},
+    {path:'inventario', component: ProductoComponent, },
     {path:'Pedidos', component: PedidosComponent},
     {path:'Ofertas', component: OfertasComponent},
     {path:'Categorias', component: CategoriaComponent},

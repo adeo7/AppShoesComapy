@@ -26,13 +26,16 @@ let credentials={
 "password":this.frmLongin.controls['password'].value
 }
 if (this.frmLongin.invalid) {
+  alert("no es correcto")
   return
 }
 this.authService.login(credentials).subscribe(result=>{
   console.log(this.authService.getUserData())
   this.router.navigateByUrl('/Vendedor')
+  alert(" es correcto")
 },
 error=>{
+  alert("error")
   console.log(error)
 })
 }

@@ -16,7 +16,7 @@ import { CarritoComponent } from './Modules/Comprador/carrito/carrito.component'
 import { CompradorLocalesComponent } from './Modules/Comprador/comprador-locales/comprador-locales.component';
 import { CompradorInfoComponent } from './Modules/Comprador/comprador-informacion/comprador-info-index/comprador-info.component';
 import { FooterComponent } from './Shared/footer.index/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavCompradorComponent } from './Shared/nav-comprador/nav-comprador.component';
 import { NavVendedorComponent } from './Shared/nav-vendedor/nav-vendedor.component';
 import { InformacionCompradorComponent } from './Modules/Comprador/comprador-informacion/informacion-comprador/informacion-comprador.component';

@@ -1,18 +1,18 @@
 <div class="container-fluid">
-    <form class="formulario">
+    <form [formGroup]="frmLongin" class="formulario">
         <h2 class="text-center font-weight-bold">Inicia sesión</h2>
         <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+            <label for="email" class="form-label">Nombre de usuario</label>
+            <input type="email" class="form-control" id="email" placeholder="Nombre de usuario" formControlName="username">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
+            <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña" formControlName="password">
         </div>
         <p><a href="recuperar_contraseña.html" class="mb-3 d-block text-center custom-link text-black">¿Has olvidado tu contraseña?</a>
         </p>
         <div class="text-center">
-            <button type="submit" style="border-radius: 16px; background: #68548C; color: #FFF;"
+            <button type="submit" (click)="login()" style="border-radius: 16px; background: #68548C; color: #FFF;"
                 class="btn btn-block">Iniciar sesión</button>
         </div>
         <p class="text-center">¿No tienes cuenta? <a href="registro.html" class="custom-link text-black">Crea una</a></p>
