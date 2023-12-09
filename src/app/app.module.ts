@@ -25,11 +25,18 @@ import { LoginComponent } from './Shared/login/login.component';
 import { RegistrarseComponent } from './Shared/registrarse/registrarse.component';
 import { LocalVendedorComponent } from './Modules/Comprador/local-vendedor/local-vendedor.component';
 import { ProductoCompradorComponent } from './Modules/Comprador/productoComprador/productoComprador.component';
+import { FormGroup } from '@angular/forms';
 import { RecuperarPasswordComponent } from './Shared/recuperar-password/recuperar-password.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Core/token.interceptor';
 import { FooterTerYCondComponent } from './Shared/footer.index/footer-ter-y-cond/footer-ter-y-cond.component';
 import { BannerComponent } from './Shared/banner/banner.component';
+import { AgregarProductoComponent } from './Modules/Vendedor/vendedor-index/agregar-producto/agregar-producto.component';
+import { InformacionVendedorComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/informacion-vendedor/informacion-vendedor.component';
+import { ActualizarContraComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/actualizar-contra/actualizar-contra.component';
+import { RecuperarContraComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/recuperar-contra/recuperar-contra.component';
+import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/oferta-categoria/oferta-categoria.component';
+
 
 
 @NgModule({
@@ -57,7 +64,12 @@ import { BannerComponent } from './Shared/banner/banner.component';
     ProductoCompradorComponent,
     RecuperarPasswordComponent,
     FooterTerYCondComponent,
-    BannerComponent
+    BannerComponent,
+    AgregarProductoComponent,
+    InformacionVendedorComponent,
+    ActualizarContraComponent,
+    RecuperarContraComponent,
+    OfertaCategoriaComponent,
   ],
   imports: [
     BrowserModule,

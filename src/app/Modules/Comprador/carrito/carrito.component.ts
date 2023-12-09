@@ -18,7 +18,7 @@ export class CarritoComponent implements OnInit{
   ListProductos:any[]=[]
   
   // funcionamiento de los botones
-  myNumber: number = 0;
+  myNumber: number = 1;
 
   constructor(private service: CarritoDetallesService,
               private authService: AuthService
@@ -35,7 +35,7 @@ export class CarritoComponent implements OnInit{
   }
 
   decrement() {
-    if (this.myNumber > 0) {
+    if (this.myNumber > 1) {
       this.myNumber--;
     }
   }

@@ -1,13 +1,4 @@
-/* inicio sesion */
-.formulario {
-    margin: 0 auto;
-    width: 345px;
-    height: 420px;
-    padding: 50px;
-    border: 1px solid #000000;
-    border-radius: 50px;
-    margin-top: 50px;
-}
+
 
 /* inicio sesion */
 /* -------------------------------------------------------------------------------------------------------------------- */
@@ -131,10 +122,3 @@ textarea {
 
 
 
-/* cambio de contraseña */
-.primary{
-    margin-right: 5px;
-    background-color: #68548C;
-    border-radius: 10px;
-    border: transparent;
-}

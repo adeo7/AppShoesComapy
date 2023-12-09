@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OfertasService } from 'src/app/Core/ofertas.service';
 import { ProductoService } from 'src/app/Core/producto.service';
-import { TallasService } from 'src/app/Core/tallas.service';
 
 @Component({
-  selector: 'app-ofertas',
-  templateUrl: './ofertas.component.html',
-  styleUrls: ['./ofertas.component.css']
+  selector: 'app-oferta-categoria',
+  templateUrl: './oferta-categoria.component.html',
+  styleUrls: ['./oferta-categoria.component.css']
 })
-export class OfertasComponent implements OnInit {
+export class OfertaCategoriaComponent implements OnInit {
   public frmOfreta: FormGroup;
   listOfertas: any[] = [];
   listProductos: any[] = [];
@@ -74,19 +73,18 @@ export class OfertasComponent implements OnInit {
       this.frmOfreta.controls['descuento'].setValue(result.descuento)
       this.frmOfreta.controls['fecha_inicio'].setValue(result.inicio_oferta)
       this.frmOfreta.controls['fecha_fin'].setValue(result.fin_oferta)
-      this.frmOfreta.controls['producto'].setValue(result.producto_id)
-      console.log("el id del producto: "+result.fin_oferta)
+      this.frmOfreta.controls['producto'].setValue(result.fin_oferta)
     })
   }
   actualizar() {
     this.bandera = false
     let data = {
-      "id": this.id,
-      "tipo": this.frmOfreta.controls['nombre'].value,
+      "id": 5,
+      "tipo_oferta": this.frmOfreta.controls['nombre'].value,
       "descuento": this.frmOfreta.controls['descuento'].value,
-      "inicio_oferta": this.frmOfreta.controls['descuento'].value,
-      "fin_oferta": this.frmOfreta.controls['descuento'].value,
-      "producto_id":1
+      "inicio_oferta": this.frmOfreta.controls['fecha_inicio'].value,
+      "fin_oferta": this.frmOfreta.controls['fecha_fin'].value,
+      "producto": this.frmOfreta.controls['producto'].value
     }
     this.service.edit(data, this.id).subscribe(result => {
       alert("datos actualizados")
@@ -100,6 +98,12 @@ export class OfertasComponent implements OnInit {
     this.service.delete(id).subscribe(result => {
       alert("oferta eliminada")
       this.getlist();
-    })
+    },
+      error => {
+        console.log(error)
+      })
   }
+// poner la logica de categoria aqui de bajo
+
+
 }
