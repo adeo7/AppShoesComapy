@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LocalesService {
-  private urlBase = 'http://127.0.0.1:8000/usuarios/local/1';
+  private urlBase = 'http://127.0.0.1:8000/usuarios/local';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {
@@ -25,7 +25,7 @@ export class LocalesService {
   }
 
   getById(id:number) {
-    return this.Http.get<any>(this.urlBase+id,{headers :this.httpHeader})
+    return this.Http.get<any>(this.urlBase+"/"+id,{headers :this.httpHeader})
   }
 
   delete(id:number) {

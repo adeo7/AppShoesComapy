@@ -4,6 +4,12 @@
         <label class="form-label m-2 r-2 fw-bolder">Nombre </label>
         <input type="text" class="form-control m-1 shadow" placeholder="Nombre" formControlName="nombre" required>
 
+        <label class="form-label m-2 r-2 fw-bolder">Descripcion</label>
+        <input type="text" class="form-control m-1 shadow" placeholder="Descripcion" formControlName="descripcion" required>
+
+        <label class="form-label m-2 r-2 fw-bolder">Marca</label>
+        <input type="text" class="form-control m-1 shadow" placeholder="Marca" formControlName="marca" required>
+
         <label class="form-label m-2 r-2 fw-bolder">Cantidad</label>
         <input type="number" class="form-control m-1 shadow" placeholder="Cantidad" max="100" min="1" required>
 
@@ -40,6 +46,6 @@
             formControlName="imgProducto">
     </div>
     <div class="container d-flex justify-content-center align-items-center p-5 col-6">
-        <button class="btn btn-custom">Guardar</button>
+        <button class="btn btn-custom" (click)="guardar()">Guardar</button>
     </div>
 </div>

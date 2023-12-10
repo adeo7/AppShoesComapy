@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { CategoriasService } from 'src/app/Core/categorias.service';
 import { ImagenProductoService } from 'src/app/Core/imagen-producto.service';
@@ -21,6 +22,7 @@ export class ProductoComponent implements OnInit {
     private serviceFoto: ImagenProductoService,
     private serviceCategorias: CategoriasService,
     private serviceTallas: TallasService,
+    private router:Router
   ) {
     this.FrmProducto = new FormGroup({
       nombre: new FormControl(null, [Validators.required]),
@@ -68,28 +70,7 @@ export class ProductoComponent implements OnInit {
       this.FrmProducto.controls['disponibles'].setValue(result.nombre)
     })
   }
-  guardar(){
-    if (this.FrmProducto.invalid) {
-      console.log("falto")
-    }
-    let data={
-      "nombre": this.FrmProducto.controls['nombre'].value,
-      "descripcion":this.FrmProducto.controls['descripcion'].value,
-      "marca":this.FrmProducto.controls['marca'].value,
-      "precio":this.FrmProducto.controls['precio'].value,
-      "color": this.FrmProducto.controls['color'].value,
-      "genero": this.FrmProducto.controls['genero'].value,
-      "disponible": this.FrmProducto.controls['disponibles'].value,
-      "categoria_id": this.FrmProducto.controls['categoria'].value,
-      "talla_id": this.FrmProducto.controls['talla'].value,
-      "local_usuario_id": 1
-    }
-    this.service.save(data, this.id).subscribe(result=>{
-      alert('producto guardado')
-      this.getlist();
-    },
-    error=>{
-      console.log(error)
-    })
+  agregar(){
+    this.router.navigateByUrl('vendedor/agregar')
   }
 }

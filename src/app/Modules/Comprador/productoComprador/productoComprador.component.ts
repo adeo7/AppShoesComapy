@@ -14,33 +14,44 @@ import { ProductoService } from 'src/app/Core/producto.service';
 export class ProductoCompradorComponent implements OnInit{
   carrito:any[]=[]
   producto:any;
+  Usuario:any
   id:any;
-  Usuario:any;
   disponible:number=0
   cantidad=0
   precio=0
   constructor(private service:ProductoService,
               private activeRouter:ActivatedRoute,
+              private getProducto: GetProductosService,
               private carritoDservice:CarritoDetallesService,
               private aunthService: AuthService
     ){
       this.id=activeRouter.snapshot.params['id'];
-      this.Usuario=this.aunthService.getUserData;
-      
   }
   ngOnInit(): void {
    this.getList(); 
   }
 
   getList(){
-    this.service.getById(this.id).subscribe(result=>{
-      this.producto=result
-      this.disponible=result.disponible
-    },
-    error=>{
-      console.log(error) 
+    if (this.aunthService.isLoggedIn()) {
+      this.service.getById(this.id).subscribe(result=>{
+        this.producto=result
+        this.disponible=result.disponible
+      },
+      error=>{
+        console.log(error) 
+      }
+      );
+    } else {
+      this.getProducto.getById(this.id).subscribe(result=>{
+        this.producto=result
+        this.disponible=result.disponible
+      },
+      error=>{
+        console.log(error) 
+      }
+      );
     }
-    );
+
   }
   //aca se guarda el producto del carrito
   agregarCarrito(id:any){

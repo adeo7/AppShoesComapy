@@ -10,34 +10,34 @@ import { LocalesService } from 'src/app/Core/locales.service';
   styleUrls: ['./nav-comprador.component.css']
 })
 export class NavCompradorComponent {
-  listaLocales: any[] = []
   Usuario:any
+  inicio:boolean=false
+  
   constructor(private service: LocalesService,
     private router: Router,
     private auth :AuthService
 
   ) { 
-   this.Usuario=auth.getUserData()
+   
+   this.inicio=auth.isLoggedIn();
   }
 
   ngOnInit(): void {
     this.getList();
+    let Usu=localStorage.getItem('usuario')
+    if (Usu) {
+      this.Usuario=JSON.parse(Usu); 
+    }
     console.log(this.Usuario)
   }
 
   getList() {
     this.Usuario=this.auth.getUserData()
-    this.service.getAll().subscribe(result => {
-      this.listaLocales = result;
-      console.log(this.listaLocales)
-
-    },
-      error => {
-        console.log(error)
-      });
   }
-  verLocal(id: any) {
-    this.router.navigateByUrl('/local/' + id)
+  cerrar(){
+    alert("cerrar seccion?")
+    this.auth.logout();
+    this.router.navigateByUrl('');
   }
 
 }

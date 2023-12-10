@@ -21,9 +21,7 @@ ngOnInit(): void {
 
 getList(){
   this.service.getAll().subscribe(result=>{
-    this.listaLocales=result;
-    console.log(this.listaLocales)
-
+    this.listaLocales=result
    },
    error=>{
     console.log(error)

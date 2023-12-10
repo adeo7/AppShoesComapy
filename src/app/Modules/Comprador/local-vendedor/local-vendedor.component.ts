@@ -33,15 +33,12 @@ export class LocalVendedorComponent implements OnInit {
       ([Result, productosResult]) => {
         this.local = Result
         productos = productosResult;
-        console.log(this.local)
-        console.log(productos)
         for (let i = 0; i < productos.length; i++) {
           if (productos[i].local == this.local.nombre_local) {
             productoslocal.push(productos[i])
           }
           this.listaProductos = productoslocal;
         }
-        console.log(this.listaProductos)
       },
       error => {
         // Manejo de errores si es necesario

@@ -9,13 +9,18 @@ import { AuthService } from 'src/app/Core/auth.service';
 })
 export class VendedorIndexComponent implements OnInit{
 
+  usuario:any;
+
   constructor(private service: AuthService, private router: Router){}
 
   ngOnInit(): void {
-    
+    let usu=localStorage.getItem('usuario')
+    if (usu) {
+      this.usuario=JSON.parse(usu)
+    }
   }
   cerrar(){
 this.service.logout();
-this.router.navigateByUrl('');
+this.router.navigateByUrl('login');
   }
 }

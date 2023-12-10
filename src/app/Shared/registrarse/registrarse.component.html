@@ -1,4 +1,4 @@
-<form [formGroup]="registroForm" method="post">
+<!-- <form [formGroup]="registroForm" method="post">
     <input type="text" formControlName="firstName" placeholder="Nombres" required>
     <input type="text" formControlName="lastName" placeholder="Apellidos" required>
     <input type="text" formControlName="address" placeholder="Dirección" required>
@@ -13,82 +13,83 @@
     <input type="password" formControlName="confirmPassword" placeholder="Confirmar Contraseña" required>
     <input type="checkbox" formControlName="terms" required> Acepto los términos y condiciones
     <button type="submit" [disabled]="!registroForm.valid" onclick="registro()">Registrar</button>
-  </form>
+  </form> -->
   
-<!-- <app-nav-comprador></app-nav-comprador>
+<app-nav-comprador></app-nav-comprador>
 <div class="container-fluid shadow mt-5 col col-5" style=" border: 1px solid #201f1f; border-radius: 50px;">
-    <form class=" row m-5 " [formGroup]="registroForm" (ngSubmit)="submitForm()">
+    <form class=" row m-5 " [formGroup]="registroForm" >
         <h2 class="text-center">Regístrate</h2>
         <div class="col-md-6 ">
             <div class="form-group">
+                <label class="fw-bolder" for="nombre">Nombre de Usuario</label>
+                <input  type="text" class="form-control " id="nombre" placeholder="Tu nombre de usuario" formControlName="username">
+            </div>
+            <div class="form-group">
                 <label class="fw-bolder" for="nombre">Nombres</label>
-                <input type="text" class="form-control " id="nombre" placeholder="Nombres">
+                <input type="text" class="form-control " id="nombre" placeholder="Nombres" formControlName="firstName">
             </div>
 
             <div class="form-group">
                 <label class="fw-bolder" for="apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" formControlName="lastName">
             </div>
 
             <div class="form-group">
                 <label class="fw-bolder" for="direccion">Dirección</label>
-                <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                <input type="text" class="form-control" id="direccion" placeholder="Dirección" formControlName="address">
             </div>
 
             <div class="form-group">
                 <label class="fw-bolder" for="telefono">Teléfono</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Teléfono">
+                <input type="text" class="form-control" id="telefono" placeholder="Teléfono" formControlName="phone">
             </div>
 
-            <div class="form-group">
-                <label class="fw-bolder" for="correo">Correo</label>
-                <input type="text" class="form-control" id="correo" placeholder="Correo">
-            </div>
         </div>
+
 
         <div class="col-md-6">
             <div class="form-group">
+                <label class="fw-bolder" for="correo">Correo</label>
+                <input type="text" class="form-control" id="correo" placeholder="Correo" formControlName="email">
+            </div>
+            <div class="form-group">
                 <label class="fw-bolder" for="tipoDocumento">Tipo de Documento</label>
-                <select class="form-control" id="tipoDocumento">
+                <select class="form-control" id="tipoDocumento" formControlName="documentType">
                     <option value="" disabled selected>Seleccione...</option>
-                    <option value="dni">Cédula</option>
-                    <option value="pasaporte">Pasaporte</option>
+                    <option value="Cc">Cédula</option>
+                    <option value="Ce">Cedula extrangera</option>
+                    <option value="Ti">Tarjeta de identidad</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label class="fw-bolder" for="documento">Número de Documento</label>
-                <input type="text" class="form-control" id="documento" placeholder="Número de Documento">
-            </div>
-
-            <div class="form-group">
-                <label class="fw-bolder" for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="fechaNacimiento">
+                <input type="text" class="form-control" id="documento" placeholder="Número de Documento" formControlName="documentNumber">
             </div>
 
             <div class="form-group">
                 <label for="contrasena">Contraseña</label>
-                <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" formControlName="password">
             </div>
 
             <div class="form-group">
                 <label class="fw-bolder" for="confirmarContrasena">Confirmar Contraseña</label>
                 <input type="password" class="form-control" id="confirmarContrasena"
-                    placeholder="Confirmar Contraseña" formControlName="password">
+                    placeholder="Confirmar Contraseña" formControlName="confirmPassword">
             </div>
         </div>
 
         <div class="col-12 mb-3 form-check text-center">
-            <input type="checkbox" class="fw-bolder form-check-input" id="privacidad">
+            <input type="checkbox" class="fw-bolder form-check-input" id="privacidad" formControlName="terms">
             <label class="form-check-label" for="privacidad">Al registrarte, aceptas nuestras Condiciones de uso
                 y Política de privacidad.</label>
         </div>
 
         <div class="col-12 text-center">
-            <button type="submit" class="btn primary mb-3" [disabled]="registroForm.invalid">Registrarse</button>
+            <button type="submit" class="btn btn-primary mb-3" (click)="registro()">Registrarse</button>
             <p>¿Ya tienes una cuenta? <a routerLink="/login" class="link text-dark">Iniciar Sesión</a></p>
         </div>
     </form>
 </div>
 <br>
-<app-footer></app-footer> -->
+<app-footer></app-footer>

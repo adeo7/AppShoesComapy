@@ -15,6 +15,7 @@ export class AgregarProductoComponent implements OnInit {
   listPrdocutos: any[] = []
   listCategorias: any[] = []
   listTallas: any[] = []
+  id=0
   public FrmProducto: FormGroup
   constructor(private service: ProductoService,
     private serviceFoto: ImagenProductoService,
@@ -51,11 +52,6 @@ export class AgregarProductoComponent implements OnInit {
         fotos = fotoResult;
         this.listCategorias = resultCate;
         this.listTallas = resultTallas;
-        // for (let i = 0; i < productos.length; i++) {
-        //   for (let j = 0; j < fotos.length; j++) {
-
-        //   }
-        // }
         this.listPrdocutos = productos
       },
       error => {
@@ -63,5 +59,30 @@ export class AgregarProductoComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+  guardar(){
+    if (this.FrmProducto.invalid) {
+      console.log("falto")
+    }
+    let data={
+      "nombre": this.FrmProducto.controls['nombre'].value,
+      "descripcion":this.FrmProducto.controls['descripcion'].value,
+      "marca":this.FrmProducto.controls['marca'].value,
+      "precio":this.FrmProducto.controls['precio'].value,
+      "color": this.FrmProducto.controls['color'].value,
+      "genero": this.FrmProducto.controls['genero'].value,
+      "disponible": this.FrmProducto.controls['disponibles'].value,
+      "categoria_id": this.FrmProducto.controls['categoria'].value,
+      "talla_id": this.FrmProducto.controls['talla'].value,
+      "local_usuario_id": 1
+    }
+    console.log(data)
+    // this.service.save(data, this.id).subscribe(result=>{
+    //   alert('producto guardado')
+    //   this.getlist();
+    // },
+    // error=>{
+    //   console.log(error)
+    // })
   }
 }

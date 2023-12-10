@@ -25,7 +25,7 @@ import { InformacionVendedorComponent } from './Modules/Vendedor/vendedor-index/
 
 const routes: Routes = [
   {
-    path: 'vendedor_1', component: VendedorIndexComponent,
+    path: 'vendedor', component: VendedorIndexComponent,
     //  canActivate:[AuthGuard],
     children: [
       { path: 'Productos', component: ProductoComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
   },
   // compradores
   {
-    path: 'compredor-info', component: CompradorInfoComponent,
+    path: 'comprador-info', component: CompradorInfoComponent,
     //  canActivate:[AuthGuard],
     children: [
       { path: '', component: InformacionCompradorComponent },

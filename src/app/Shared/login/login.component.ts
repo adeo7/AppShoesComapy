@@ -37,15 +37,12 @@ export class LoginComponent implements OnInit {
       return
     }
     this.authService.login(credentials).subscribe(result => {
-      console.log(this.authService.getUserData())
-      this.router.navigateByUrl('/Vendedor')
+      let dato=this.authService.getUserData()
+      localStorage.setItem("usuario",JSON.stringify(dato));
+      this.router.navigateByUrl('Vendedor')
     },
       error => {
         console.log(error)
-      })
+      });
   }
-  cerrar() {
-    this.authService.logout();
-  }
-
 }

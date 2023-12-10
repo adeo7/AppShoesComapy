@@ -19,14 +19,35 @@
         <!-- imagenes parte derecha -->
         <div class="d-flex justify-content-between">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" *ngIf="inicio">
+              <a class="nav-link active text-white" routerLink="/carrito">
+                <h6>
+                  carrito
+                </h6>
+              </a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="inicio">
+              <a class="nav-link active text-white" (click)="cerrar()" routerLink="">
+                <h6>
+                  cerrar cecion
+                </h6>
+              </a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="inicio">
+              <a class="nav-link active text-white" routerLink="comprador-info">
+                <h6>
+                 {{Usuario.username}}
+                </h6>
+              </a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="!inicio">
               <a class="nav-link active text-white" routerLink="/login">
                 <h6>
                   Inicio Sesión
                 </h6>
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" *ngIf="!inicio">
               <a class="nav-link active text-white" routerLink="/registro">
                 <h6>
                   Registrarse

@@ -49,3 +49,6 @@
     margin-left: 40%;
     /* Estilos para el ícono del botón */
   }
+  a{
+    cursor: pointer;
+  }

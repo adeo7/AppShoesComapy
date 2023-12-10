@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private urlBase = 'http://127.0.0.1:8000/usuarios';
+  private urlBase = 'http://127.0.0.1:8000/usuarios/usuarios/';
   private httpHeader: HttpHeaders
 
   constructor(private Http: HttpClient) {
