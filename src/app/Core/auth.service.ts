@@ -30,6 +30,10 @@ export class AuthService {
     return localStorage.getItem('authToken'); // Obtener el token almacenado
   }
   getUserData(): any {
+    let usu=localStorage.getItem('usuario')
+    if (usu) {
+      this.userData=JSON.parse(usu)
+    }
     return this.userData;
   }
 

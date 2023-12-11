@@ -17,6 +17,7 @@ export class ProductoComponent implements OnInit {
   listCategorias: any[] = []
   listTallas: any[] = []
   id:any=0
+  local:any
   constructor(private service: ProductoService,
     private serviceFoto: ImagenProductoService,
     private serviceCategorias: CategoriasService,
@@ -25,12 +26,22 @@ export class ProductoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    let lol =localStorage.getItem('local')
+    if (lol) {
+      this.local=JSON.parse(lol);
+    }
     this.getlist()
   }
 
   getlist() {
+    let productos:any[]=[]
     this.service.getAll().subscribe(result=>{
-      this.listPrdocutos=result
+    productos=result
+    productos.forEach(element => {
+      if (element.local==this.local.id) {
+        this.listPrdocutos.push(element);
+      }
+    });
     });
   }
   edit(id:any){
