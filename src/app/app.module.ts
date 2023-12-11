@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AnimationBuilder } from '@angular/animations';
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,6 +77,9 @@ import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/ofer
     OfertaCategoriaComponent,
   ],
   imports: [
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    NgxIntlTelInputModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -82,6 +90,7 @@ import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/ofer
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
+     
       useClass: TokenInterceptor,
       multi: true
     }

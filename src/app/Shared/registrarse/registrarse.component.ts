@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+// import { PhoneNumberUtil } from 'google-libphonenumber';
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/Core/auth.service';
 import { UsuarioService } from 'src/app/Core/usuario.service';
@@ -9,6 +11,25 @@ import { UsuarioService } from 'src/app/Core/usuario.service';
   styleUrls: ['./registrarse.component.css']
 })
 export class RegistrarseComponent implements OnInit {
+	separateDialCode = false;
+	SearchCountryField = SearchCountryField;
+	CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+
+
+  mostrarContrasenaConfirmar = false;
+
+  toggleMostrarContrasenaConfirmar() {
+    this.mostrarContrasenaConfirmar = !this.mostrarContrasenaConfirmar;
+  }
+  mostrarContrasena = false;
+
+  toggleMostrarContrasena() {
+    this.mostrarContrasena = !this.mostrarContrasena;
+  }
+// ---
+
   public registroForm: FormGroup;
   documentTypes = ['CC', 'TI', 'CE'];
 
