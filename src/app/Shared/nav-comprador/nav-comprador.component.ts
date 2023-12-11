@@ -28,7 +28,6 @@ export class NavCompradorComponent {
     if (Usu) {
       this.Usuario=JSON.parse(Usu); 
     }
-    console.log(this.Usuario)
   }
 
   getList() {

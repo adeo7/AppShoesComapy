@@ -47,13 +47,14 @@ export class OfertaCategoriaComponent implements OnInit {
     if (this.frmOfreta.invalid) {
       alert("por favor completar todos los campos")
     }
+    let producto:number
+    producto=parseInt(this.frmOfreta.controls['producto'].value)
     let data = {
       "tipo": this.frmOfreta.controls['nombre'].value,
       "descuento": this.frmOfreta.controls['descuento'].value,
       "inicio_oferta": this.frmOfreta.controls['fecha_inicio'].value,
       "fin_oferta": this.frmOfreta.controls['fecha_fin'].value,
-      "producto_id": this.frmOfreta.controls['producto'].value
-
+      "producto_id": producto
     }
     console.log(data);
 
@@ -79,15 +80,17 @@ export class OfertaCategoriaComponent implements OnInit {
   actualizar() {
     this.bandera = false
     let data = {
-      "id": 5,
-      "tipo_oferta": this.frmOfreta.controls['nombre'].value,
+      "id": this.id,
+      "tipo": this.frmOfreta.controls['nombre'].value,
       "descuento": this.frmOfreta.controls['descuento'].value,
       "inicio_oferta": this.frmOfreta.controls['fecha_inicio'].value,
       "fin_oferta": this.frmOfreta.controls['fecha_fin'].value,
-      "producto": this.frmOfreta.controls['producto'].value
+      "producto":this.frmOfreta.controls['producto'].value
     }
     this.service.edit(data, this.id).subscribe(result => {
       alert("datos actualizados")
+      let boton=document.getElementById('close');
+      boton?.click()
       this.getlist();
     },
       error => {

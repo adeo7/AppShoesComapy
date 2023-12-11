@@ -16,32 +16,21 @@
         <table class="table table-bordered  ">
           <thead>
             <tr class="text-center">
-              <th>Imagen</th>
-              <th>Nombre</th>
-              <th>Talla</th>
-              <th>Categorías</th>
-              <th>Precio</th>
-              <th>Color</th>
-              <th>Cantidad</th>
+              <th>Codigo</th>
+              <th>fecha</th>
+              <th>Usuario</th>
+              <th>Cantidad de productos</th>
               <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="text-center">
+            <tr *ngFor="let p of listPedidos" class="text-center">
+              <td>{{p.codigo}}</td>
+              <td>{{p.fecha_pedido}}</td>
+              <td>{{p.usuario_id}}</td>
+              <td>{{p.id}}</td>
               <td>
-                <!-- imagen del producto -->
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUlAzrvSRW9TgKFK4bwOArA04G4G41mSFPkw&usqp=CAU"
-                  class="rounded" alt="Descripción de la imagen" style="width: 60p; height: 60px;">
-              </td>
-              <td>Producto</td>
-              <td>50</td>
-              <td>$20.00</td>
-              <td>Azul</td>
-              <td>10</td>
-              <td>Despachado</td>
-              <td>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button (click)="verPedido(p.id)" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </td>
@@ -135,30 +124,26 @@
       <div class="modal-body">
         <div class="row">
           <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Nombre del Producto</h5>
-                <p class="card-text">Categoría: <span class="font-weight-bold">Nombre de la Categoría</span></p>
-                <p class="card-text">Talla: <span class="font-weight-bold">Talla del Producto</span></p>
-                <p class="card-text">Precio: <span class="font-weight-bold">$XXX</span></p>
-                <p class="card-text">Color: <span class="font-weight-bold">Color del Producto</span></p>
-                <p class="card-text">Marca: <span class="font-weight-bold">Nombre de la Marca</span></p>
-                <p class="card-text">Género: <span class="font-weight-bold">Género del Producto</span></p>
-                <p class="card-text">Cantidad disponible: <span class="font-weight-bold">Cantidad Disponible</span></p>
+            <div class="card p-2">
+              <div class="card m-1" *ngFor="let p of productosPedido">
+                <div class="card-body">
+                  <h5 class="card-title">{{p.id}}</h5>
+                  <p class="card-text">Cantidad: <span class="font-weight-bold">{{p.cantidad}}</span></p>
+                  <p class="card-text">precio: <span class="font-weight-bold">{{p.precio}}</span></p>
+                  <p class="card-text">total: <span class="font-weight-bold">{{p.total}}</span></p>
+                </div>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Nombre del cliente</h5>
-                <p class="card-text">Apellidos: <span class="font-weight-bold">apellidos</span></p>
-                <p class="card-text">direccion: <span class="font-weight-bold">direccion</span></p>
-                <p class="card-text">telefono: <span class="font-weight-bold">1122333</span></p>
-                <p class="card-text">tipo de documento: <span class="font-weight-bold">C.C</span></p>
-                <p class="card-text">numero de documento: <span class="font-weight-bold">11111111</span></p>
-                <p class="card-text">Fecha del pedido: <span class="font-weight-bold">20-10-2023</span></p>
-                <p class="card-text">Total del pedido: <span class="font-weight-bold">20.000.000</span></p>
+                <h5 class="card-title">{{clientePedido.name+" "+clientePedido.last_name}}</h5>
+                <p class="card-text">Correo: <span class="font-weight-bold">{{clientePedido.email}}</span></p>
+                <p class="card-text">direccion: <span class="font-weight-bold">{{clientePedido.direccion}}</span></p>
+                <p class="card-text">telefono: <span class="font-weight-bold">{{clientePedido.telefono}}</span></p>
+                <p class="card-text">Fecha del pedido: <span class="font-weight-bold">{{pedido.fecha_pedido}}</span></p>
+                <p class="card-text">Total del pedido: <span class="font-weight-bold">{{total}}</span></p>
               </div>
             </div>
           </div>

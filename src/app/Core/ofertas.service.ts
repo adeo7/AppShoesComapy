@@ -21,7 +21,7 @@ export class OfertasService {
   }
 
   edit(data:any, id:any){
-    return this.Http.put<any>(this.urlBase + id,data,{headers :this.httpHeader})  
+    return this.Http.put<any>(this.urlBase + id+ "/" ,data,{headers :this.httpHeader})  
   }
 
   getById(id:number) {

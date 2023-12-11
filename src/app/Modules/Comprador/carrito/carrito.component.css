@@ -16,3 +16,8 @@
     .input-group input {
         width: 3rem;
     }
+    .carrito{
+        height: 800dvh;
+        width: 900dvh;
+        overflow: hidden;
+    }
