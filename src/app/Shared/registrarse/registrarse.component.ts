@@ -67,7 +67,9 @@ export class RegistrarseComponent implements OnInit {
       } else {
         let phoneNumber = this.registroForm.controls['phone'].value;
         let formattedPhoneNumber = phoneNumber.internationalNumber;
+        console.log(formattedPhoneNumber)
         let data = {
+          
           "password": this.registroForm.controls['password'].value,
           "is_superuser": false,
           "username": this.registroForm.controls['username'].value,
@@ -81,7 +83,8 @@ export class RegistrarseComponent implements OnInit {
           "is_active": true,
           "is_staff": true,
           "roles_id": null,
-          "locales_usuarios": null
+          "locales_usuarios": null,
+          
         }
         this.serviceUsuario.save(data).subscribe(result => {
           alert("Registrado")
