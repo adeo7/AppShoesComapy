@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AnimationBuilder } from '@angular/animations';
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VendedorIndexComponent } from './Modules/Vendedor/vendedor-index/vendedor-index/vendedor-index.component';
@@ -76,6 +80,9 @@ import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
     PqrsFormComponent,
   ],
   imports: [
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    NgxIntlTelInputModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -88,6 +95,7 @@ import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
+     
       useClass: TokenInterceptor,
       multi: true
     }
