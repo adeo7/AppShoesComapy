@@ -29,12 +29,10 @@ export class CompradorProductosComponent implements OnInit {
     if (this.auth.isLoggedIn()) {
       this.service.getAll().subscribe(result=>{
         this.listProductos=result;
-        console.log("resultado: "+result)
       });
     } else {
       this.productoSin.getAll().subscribe(result=>{
         this.listProductos=result;
-        console.log("resultado: "+result)
       }); 
     }
 

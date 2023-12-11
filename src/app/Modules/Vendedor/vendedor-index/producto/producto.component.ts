@@ -17,60 +17,33 @@ export class ProductoComponent implements OnInit {
   listCategorias: any[] = []
   listTallas: any[] = []
   id:any=0
-  public FrmProducto: FormGroup
   constructor(private service: ProductoService,
     private serviceFoto: ImagenProductoService,
     private serviceCategorias: CategoriasService,
     private serviceTallas: TallasService,
     private router:Router
-  ) {
-    this.FrmProducto = new FormGroup({
-      nombre: new FormControl(null, [Validators.required]),
-      descripcion: new FormControl(null, [Validators.required]),
-      precio: new FormControl(null, [Validators.required]),
-      marca: new FormControl(null, [Validators.required]),
-      genero: new FormControl(null, [Validators.required]),
-      talla: new FormControl(null, [Validators.required]),
-      disponibles: new FormControl(null, [Validators.required]),
-      color: new FormControl(null, [Validators.required]),
-      categoria: new FormControl(null, [Validators.required])
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getlist()
-    this.getlist()
-    this.getlist()
-    this.getlist()
-   
   }
 
   getlist() {
     this.service.getAll().subscribe(result=>{
       this.listPrdocutos=result
     });
-    this.serviceCategorias.getAll().subscribe(result=>{
-      this.listCategorias=result
-    });
-    this.serviceTallas.getAll().subscribe(result=>{
-      this.listTallas=result
-    });
   }
   edit(id:any){
-    this.id=id
-    
-    this.service.getById(id).subscribe(result=>{
-      console.log(result.id)
-      this.FrmProducto.controls['nombre'].setValue(result.nombre)
-      this.FrmProducto.controls['precio'].setValue(result.precio)
-      this.FrmProducto.controls['marca'].setValue(result.marca)
-      this.FrmProducto.controls['genero'].setValue(result.genero)
-      this.FrmProducto.controls['talla'].setValue(result.talla)
-      this.FrmProducto.controls['color'].setValue(result.nombre)
-      this.FrmProducto.controls['disponibles'].setValue(result.nombre)
-    })
+    this.router.navigateByUrl('vendedor/editar/'+id)
   }
   agregar(){
     this.router.navigateByUrl('vendedor/agregar')
+  }
+  eliminar(id:any){
+    alert('estas eliminado el producto')
+    this.service.delete(id).subscribe(result=>{
+      console.log("elimando")
+      this.getlist();
+    });
   }
 }

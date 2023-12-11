@@ -1,5 +1,8 @@
-<h1 class="text-center">Agregar</h1>
+<h1 class="text-center" *ngIf="!bandera">Agregar producto</h1>
+<h1 class="text-center" *ngIf="bandera">Editar Producto</h1>
+<form [formGroup]="FrmProducto">
 <div class="row">
+    
     <div class="col-lg-5 col-md-6">
         <label class="form-label m-2 r-2 fw-bolder">Nombre </label>
         <input type="text" class="form-control m-1 shadow" placeholder="Nombre" formControlName="nombre" required>
@@ -11,16 +14,16 @@
         <input type="text" class="form-control m-1 shadow" placeholder="Marca" formControlName="marca" required>
 
         <label class="form-label m-2 r-2 fw-bolder">Cantidad</label>
-        <input type="number" class="form-control m-1 shadow" placeholder="Cantidad" max="100" min="1" required>
+        <input type="number" class="form-control m-1 shadow" placeholder="Cantidad" max="100" min="1" required formControlName="disponibles">
 
         <label class="form-label m-2 r-2 fw-bolder">Categoría:</label>
-        <select formControlName="talla" class="form-select shadow m-1" aria-label="Default select example">
+        <select formControlName="talla" class="form-select shadow m-1" aria-label="Default select example" formControlName="categoria">
             <option selected>Selecciona una Categoria</option>
             <option *ngFor="let c of listCategorias" value="{{c.id}}">{{c.descripcion}}</option>
         </select>
 
         <label class="form-label m-2 r-2 fw-bolder">Talla:</label>
-        <select formControlName="categoria" class="form-select shadow m-1" aria-label="Default select example">
+        <select formControlName="categoria" class="form-select shadow m-1" aria-label="Default select example" formControlName="talla">
             <option selected>Selecciona una talla</option>
             <option *ngFor="let t of listTallas" value="{{t.id}}">{{t.descripcion}}</option>
         </select>
@@ -33,7 +36,7 @@
         <input type="number" class="form-control m-1 shadow" placeholder="Precio" formControlName="precio">
 
         <label class="form-label m-2 r-2  fw-bolder">Genero:</label>
-        <select formControlName="genero" class="form-select m-1 shadow" aria-label="Default select example">
+        <select formControlName="genero" class="form-select m-1 shadow" aria-label="Default select example" formControlName="genero">
             <option value="Masculino">Masculino</option>
             <option value="Femenino">Femenino</option>
             <option value="Uni.Sex">Uni.Sex</option>
@@ -46,6 +49,8 @@
             formControlName="imgProducto">
     </div>
     <div class="container d-flex justify-content-center align-items-center p-5 col-6">
-        <button class="btn btn-custom" (click)="guardar()">Guardar</button>
+        <button class="btn btn-custom" *ngIf="!bandera" (click)="guardar()">Guardar</button>
+        <button class="btn btn-custom" *ngIf="bandera" (click)="editar()">Editar</button>
     </div>
 </div>
+</form>

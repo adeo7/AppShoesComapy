@@ -22,18 +22,20 @@ import { FooterTerYCondComponent } from './Shared/footer.index/footer-ter-y-cond
 import { AgregarProductoComponent } from './Modules/Vendedor/vendedor-index/agregar-producto/agregar-producto.component';
 import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/oferta-categoria/oferta-categoria.component';
 import { InformacionVendedorComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/informacion-vendedor/informacion-vendedor.component';
+import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
 
 const routes: Routes = [
   {
     path: 'vendedor', component: VendedorIndexComponent,
     //  canActivate:[AuthGuard],
     children: [
-      { path: 'Productos', component: ProductoComponent },
-      { path: 'Pedidos', component: PedidosComponent },
-      { path: 'Ofertas', component: OfertasComponent },
-      { path: 'Categorias', component: CategoriaComponent },
-      { path: 'PQRS', component: PQRSComponent },
+      { path: 'productos', component: ProductoComponent },
+      { path: 'pedidos', component: PedidosComponent },
+      { path: 'ofertas', component: OfertasComponent },
+      { path: 'categorias', component: CategoriaComponent },
+      { path: 'pqrs', component: PQRSComponent },
       { path: 'agregar', component: AgregarProductoComponent },
+      { path: 'editar/:id', component: AgregarProductoComponent },
       { path: 'informacion_', component: InformacionVendedorComponent},
       { path: 'agregar/oferta-categorias', component: OfertaCategoriaComponent},
     ]
@@ -63,6 +65,7 @@ const routes: Routes = [
   { path: 'producto/:id', component: ProductoCompradorComponent },
   { path: 'ter-y-con', component: FooterTerYCondComponent },
   { path: 'locales', component: CompradorLocalesComponent },
+  { path: 'crear-pqrs', component: PqrsFormComponent },
 
 
 ];

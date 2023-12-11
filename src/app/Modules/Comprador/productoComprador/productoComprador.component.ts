@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Core/auth.service';
 import { CarritoDetallesService } from 'src/app/Core/carrito-detalles.service';
 import { GetProductosService } from 'src/app/Core/get-productos.service';
@@ -23,7 +24,8 @@ export class ProductoCompradorComponent implements OnInit{
               private activeRouter:ActivatedRoute,
               private getProducto: GetProductosService,
               private carritoDservice:CarritoDetallesService,
-              private aunthService: AuthService
+              private aunthService: AuthService,
+              private toars: ToastrService
     ){
       this.id=activeRouter.snapshot.params['id'];
   }
@@ -32,6 +34,10 @@ export class ProductoCompradorComponent implements OnInit{
   }
 
   getList(){
+    let usu=localStorage.getItem('usuario')
+    if (usu) {
+      this.Usuario=JSON.parse(usu);
+    }
     if (this.aunthService.isLoggedIn()) {
       this.service.getById(this.id).subscribe(result=>{
         this.producto=result
@@ -54,17 +60,18 @@ export class ProductoCompradorComponent implements OnInit{
 
   }
   //aca se guarda el producto del carrito
-  agregarCarrito(id:any){
+  agregarCarrito(){
     let data={
-      "cantidad ":this.cantidad,
-     " precio ": this.precio, 
-      "impuesto":0,
-     " total":this.cantidad*this.precio,
-      "producto_id": id,
-      "usuario_id ": this.Usuario.id
-    }
+      "cantidad": this.cantidad,
+      "precio": this.producto.precio,
+      "impuesto": "0",
+      "total": this.cantidad*this.producto.precio,
+      "producto_id": this.id,
+      "usuario_id": this.Usuario.id,
+      "cupones_id": null
+  }
     this.carritoDservice.save(data).subscribe(result=>{
-      console.log("carrito agregado")
+      this.toars.success('Agregaste '+this.producto.nombre+' al carrito','ShoesCompany' )
     },
     error=>{
       console.log(error)

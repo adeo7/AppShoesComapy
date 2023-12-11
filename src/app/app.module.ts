@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VendedorIndexComponent } from './Modules/Vendedor/vendedor-index/vendedor-index/vendedor-index.component';
@@ -36,6 +38,7 @@ import { InformacionVendedorComponent } from './Modules/Vendedor/vendedor-index/
 import { ActualizarContraComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/actualizar-contra/actualizar-contra.component';
 import { RecuperarContraComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/recuperar-contra/recuperar-contra.component';
 import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/oferta-categoria/oferta-categoria.component';
+import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
 
 
 
@@ -70,6 +73,7 @@ import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/ofer
     ActualizarContraComponent,
     RecuperarContraComponent,
     OfertaCategoriaComponent,
+    PqrsFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,9 @@ import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/ofer
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
   ],
   providers: [
     {
