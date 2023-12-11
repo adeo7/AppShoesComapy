@@ -15,13 +15,11 @@ export class ProductoService {
    getAll() {
     return this.Http.get<any>(this.urlBase,{ headers :this.httpHeader })
   }
-  save(data:any,id:any) {
-    if (id!=0 ) {
-      return this.Http.put<any>(this.urlBase + '/'+ id,data,{headers :this.httpHeader})  
-    }else{
-      return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
-    }
-   
+  save(data:any) {
+      return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})   
+  }
+  editar(id:any, data:any){
+    return this.Http.put<any>(this.urlBase + id+'/',data,{headers :this.httpHeader})  
   }
 
   getById(id:any) {
