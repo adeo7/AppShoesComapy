@@ -6,6 +6,12 @@
     <div class="mb-3">
       <label for="email" class="form-label">Nombre de usuario</label>
       <input type="email" class="form-control" id="email" placeholder="Correo electrónico" formControlName="username">
+      <div class="alert alert-danger mt-1"
+      *ngIf="frmLongin.get('username')?.invalid && (frmLongin.get('username')?.dirty || frmLongin.get('username')?.touched)">
+      <div *ngIf="frmLongin.get('username')?.hasError('required')">
+        <span>El usuario es obligatorio</span>
+      </div>
+    </div>
     </div>
 
     <div>
