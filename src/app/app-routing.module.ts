@@ -23,6 +23,7 @@ import { AgregarProductoComponent } from './Modules/Vendedor/vendedor-index/agre
 import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/oferta-categoria/oferta-categoria.component';
 import { InformacionVendedorComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/informacion-vendedor/informacion-vendedor.component';
 import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
+import { FooterPreguntFrecuentComponent } from './Shared/footer.index/footer-pregunt-frecuent/footer-pregunt-frecuent.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,7 @@ const routes: Routes = [
   { path: 'local/:id', component: LocalVendedorComponent },
   { path: 'producto/:id', component: ProductoCompradorComponent },
   { path: 'ter-y-con', component: FooterTerYCondComponent },
+  { path: 'pregunt-frecuent', component: FooterPreguntFrecuentComponent },
   { path: 'locales', component: CompradorLocalesComponent },
   { path: 'crear-pqrs', component: PqrsFormComponent },
 
