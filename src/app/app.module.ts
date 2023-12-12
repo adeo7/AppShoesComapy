@@ -43,6 +43,7 @@ import { ActualizarContraComponent } from './Modules/Vendedor/vendedor-index/ven
 import { RecuperarContraComponent } from './Modules/Vendedor/vendedor-index/vendedor-info/recuperar-contra/recuperar-contra.component';
 import { OfertaCategoriaComponent } from './Modules/Vendedor/vendedor-index/oferta-categoria/oferta-categoria.component';
 import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
+import { FooterPreguntFrecuentComponent } from './Shared/footer.index/footer-pregunt-frecuent/footer-pregunt-frecuent.component';
 
 
 
@@ -78,6 +79,7 @@ import { PqrsFormComponent } from './Shared/pqrs-form/pqrs-form.component';
     RecuperarContraComponent,
     OfertaCategoriaComponent,
     PqrsFormComponent,
+    FooterPreguntFrecuentComponent,
   ],
   imports: [
     NoopAnimationsModule,
