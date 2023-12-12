@@ -1,4 +1,4 @@
-<!-- <h2>Ofertas</h2>
+<h2>Ofertas</h2>
 <div class="text-lg-right">
     <button type="submit"
             class="bi bi-plus-square btn btn-secondary" 
@@ -78,101 +78,5 @@
             <button type="button" class="btn btn-primary" >editar</button>
         </div>
       </div>
-    </div>
-  </div> -->
-  <div class="col-11 m-3 p-3 border shadow">
-    <h2>Lista PQRS - Tienda</h2>
-    <br>
-    <div class="table table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Nom. Usuario</th>
-            <th>Nom Local</th>
-            <th>Tipo Peticion</th>
-            <th>Estado</th>
-            <th>Fecha</th>
-            <th>F. Respuesta</th>
-            <th>Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let pqr of listPqrs">
-            <td>{{ pqr.nombre_usuario }}</td>
-            <td>{{ pqr.local_peticion }}</td>
-            <td>{{ pqr.tipo_peticion }}</td>
-            <td>{{ pqr.estado }}</td>
-            <td>{{ pqr.fecha }}</td>
-            <td>{{ pqr.fecha_respuesta }}</td>
-            <td>
-              <!-- Modal de Responder -->
-              <div class="modal fade" id="responderModal_{{pqr.id}}" data-bs-backdrop="static" data-bs-keyboard="false"
-                tabindex="-1" aria-labelledby="responderModalLabel" aria-hidden="true">
-                <button type="button" class="btn btn-custom" (click)="abrirModalResponder(pqr)">
-                  Responder
-                </button>
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="responderModalLabel">Responder PQRS</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>ID: {{ responderParams?.id }}</p>
-                      <p>Número Radicado: {{ responderParams?.numero_radicado }}</p>
-                      <!-- Agrega el resto de los parámetros según sea necesario -->
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cerrar
-                      </button>
-                      <button type="button" class="btn btn-primary" (click)="responderpqrs()">
-                        Enviar Respuesta
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>
-              <!-- Modal de Descripcion -->
-              <div class="modal fade" id="descripcionModal_{{pqr.id}}" tabindex="-1"
-                aria-labelledby="descripcionModalLabel" aria-hidden="true">
-                <!-- <button type="button" class="btn btn-custom" (click)="mostrarDetalles(pqr)" data-bs-toggle="modal"
-                  data-bs-target="#descripcionModal_{{pqr.id}}">
-                  Descripcion
-                </button> -->
-                <button type="button" class="btn btn-custom" (click)="mostrarDetalles(pqr)" data-bs-toggle="modal"
-                  [attr.data-bs-target]="'#descripcionModal_' + pqr.id">
-                  Descripcion
-                </button>
-
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="descripcionModalLabel">Detalles del PQRS</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" *ngIf="selectedPqr">
-                      <p><strong>Tipo:</strong> {{ selectedPqr.tipo_peticion }}</p>
-                      <p><strong>Nombre del Cliente:</strong> {{ selectedPqr.nombre_usuario }}
-                        {{ selectedPqr.apellidos_usuario }}</p>
-                      <p><strong>Correo Electrónico:</strong> {{ selectedPqr.correo_usuario }}</p>
-                      <p><strong>Tienda Destinataria:</strong> {{ selectedPqr.local_peticion }}</p>
-                      <p><strong>Descripción:</strong> {{ selectedPqr.descripcion }}</p>
-                      <p><strong>Adjunto:</strong> {{ selectedPqr.adjunto ? 'Sí' : 'No' }}</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cerrar
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>

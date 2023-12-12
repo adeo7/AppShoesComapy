@@ -36,7 +36,7 @@ export class NavCompradorComponent {
   cerrar(){
     alert("cerrar seccion?")
     this.auth.logout();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('login');
   }
 
 }

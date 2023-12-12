@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +30,5 @@ export class PqrsRespuestaService {
 
   delete(id:number) {
     return this.Http.delete<any>(this.urlBase+id.toString(),{headers :this.httpHeader})
-  }
-  responder(data: any): Observable<any> {
-    // Implementa la lógica para responder a la PQRS y devuelve un Observable con la respuesta.
-    return this.Http.post<any>(this.urlBase, data);
   }
 }
