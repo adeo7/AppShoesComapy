@@ -99,7 +99,7 @@ export class AgregarProductoComponent implements OnInit {
   }
   guardar(){
     if (this.FrmProducto.invalid) {
-      console.log("falto")
+      this.toastr.error('Por favor completa los datos','ShoesCompay')
     }
     let data={
       "nombre": this.FrmProducto.controls['nombre'].value,
@@ -124,7 +124,7 @@ export class AgregarProductoComponent implements OnInit {
   }
   editar(){
     if (this.FrmProducto.invalid) {
-      console.log("falto")
+      this.toastr.error('Completa los campos')
     }
     let data={
       "nombre": this.FrmProducto.controls['nombre'].value,

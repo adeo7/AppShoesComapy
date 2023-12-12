@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { forkJoin } from 'rxjs';
 import { CategoriasService } from 'src/app/Core/categorias.service';
 import { ImagenProductoService } from 'src/app/Core/imagen-producto.service';
@@ -21,7 +22,8 @@ export class ProductoComponent implements OnInit {
     private serviceFoto: ImagenProductoService,
     private serviceCategorias: CategoriasService,
     private serviceTallas: TallasService,
-    private router:Router
+    private router:Router,
+    private toars:ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +44,7 @@ export class ProductoComponent implements OnInit {
   eliminar(id:any){
     alert('estas eliminado el producto')
     this.service.delete(id).subscribe(result=>{
-      console.log("elimando")
+      this.toars.error('Producto eliminado')
       this.getlist();
     });
   }

@@ -27,8 +27,7 @@ import { FooterPreguntFrecuentComponent } from './Shared/footer.index/footer-pre
 
 const routes: Routes = [
   {
-    path: 'vendedor', component: VendedorIndexComponent,
-    //  canActivate:[AuthGuard],
+    path: 'vendedor', component: VendedorIndexComponent, canActivate:[AuthGuard],
     children: [
       { path: 'productos', component: ProductoComponent },
       { path: 'pedidos', component: PedidosComponent },
@@ -52,14 +51,14 @@ const routes: Routes = [
   // compradores
   {
     path: 'comprador-info', component: CompradorInfoComponent,
-    //  canActivate:[AuthGuard],
+     canActivate:[AuthGuard],
     children: [
       { path: '', component: InformacionCompradorComponent },
       { path: 'informacion', component: InformacionCompradorComponent },
       { path: 'cambiar', component: CambiarPasswordComponent }
     ]
   },
-  { path: 'carrito', component: CarritoComponent },
+  { path: 'carrito', component: CarritoComponent, canActivate:[AuthGuard] } ,
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistrarseComponent },
   { path: 'local/:id', component: LocalVendedorComponent },

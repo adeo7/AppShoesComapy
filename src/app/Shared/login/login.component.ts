@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { Toast, ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/Core/auth.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   // -----
   public frmLongin: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private toars:ToastrService) {
     this.frmLongin = new FormGroup({
       username: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required])
@@ -39,9 +40,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(credentials).subscribe(result => {
       let dato=this.authService.getUserData()
       localStorage.setItem("usuario",JSON.stringify(dato));
-      this.router.navigateByUrl('Vendedor')
+      this.toars.success('Bienvedid@ '+dato.username, 'ShoesCompay')
+      this.router.navigateByUrl('/')
     },
       error => {
+        this.toars.error('Verifica tus datos', 'ShoesCompany')
         console.log(error)
       });
   }

@@ -5,6 +5,7 @@ import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-
 import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/Core/auth.service';
 import { UsuarioService } from 'src/app/Core/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registrarse',
   templateUrl: './registrarse.component.html',
@@ -33,7 +34,9 @@ export class RegistrarseComponent implements OnInit {
   public registroForm: FormGroup;
   documentTypes = ['CC', 'TI', 'CE'];
 
-  constructor(private serviceUsuario: UsuarioService, private router: Router, private authService: AuthService) {
+  constructor(private serviceUsuario: UsuarioService, private router: Router, private authService: AuthService,
+              private toars:ToastrService
+    ) {
     this.registroForm = new FormGroup({
       firstName: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
       username: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]),
@@ -62,8 +65,8 @@ export class RegistrarseComponent implements OnInit {
 
       let pas = this.registroForm.controls['password'].value
       let confiPas = this.registroForm.controls['confirmPassword'].value
-      if (false) {
-        alert("verifica las contraseñas")
+      if (pas!=confiPas) {
+       this.toars.error('Ingresa tu contraseña bien')
       }
        else {
         let phoneNumber = this.registroForm.controls['phone'].value;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { CategoriasService } from 'src/app/Core/categorias.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class CategoriaComponent implements OnInit {
   formCategoria:FormGroup
   id=0
 
-  constructor(private service:CategoriasService){
+  constructor(private service:CategoriasService, private toars:ToastrService){
     this.formCategoria=new FormGroup({
       nombre: new FormControl(null,[Validators.required])
     });
@@ -38,14 +39,14 @@ export class CategoriaComponent implements OnInit {
 
   eliminar(id:any){
     this.service.delete(id).subscribe(result=>{
-      alert("categoria eliminada")
+      this.toars.error('Categorias eliminada', 'ShoesCompany')
       this.getList();
     })
   }
 
   guardar(){
     if (this.formCategoria.invalid) {
-      alert("completa los datos")
+      this.toars.error('Por favor completa los datos','ShoesCompany')
     }
     let data={
       "descripcion": this.formCategoria.controls['nombre'].value,
@@ -53,13 +54,13 @@ export class CategoriaComponent implements OnInit {
     }
     if (this.id!=0) {
       this.service.save(data, this.id).subscribe(result=>{
-        alert("categoria editada")
+        this.toars.success('categoria editada','ShoesCompany')
         this.cerrar();
         this.getList();
       });
     } else {
       this.service.save(data, this.id).subscribe(result=>{
-        alert("categoria guardada")
+        this.toars.success('categoria guardada','ShoesCompay')
         this.cerrar();
         this.getList();
       }); 
